@@ -38,8 +38,8 @@ class _RegisterPageState extends State<RegisterPage> {
 
       // show error message to user
       displayMessageToUser("Entered Passwords don't match!", context);
-    
-    // if passwords do match
+
+      // if passwords do match
     } else {
       // try creating the user
       try {
@@ -51,13 +51,15 @@ class _RegisterPageState extends State<RegisterPage> {
             );
 
         // pop the loading circle
-        Navigator.pop(context);
+        if (mounted) {
+          Navigator.pop(context);
+        }
       } on FirebaseAuthException catch (e) {
         // pop loading circle
-        Navigator.pop(context);
-
-        // display error message to user
-        displayMessageToUser(e.code, context);
+        if (mounted) {
+          Navigator.pop(context);
+          displayMessageToUser(e.code, context);
+        }
       }
     }
   }

@@ -30,19 +30,18 @@ class _LoginPageState extends State<LoginPage> {
 
     // try sign in
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(email: emailController.text, password: passwordController.text);
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text, password: passwordController.text);
 
       // pop the loading circle
-      if (context.mounted) Navigator.pop(context);
+      if (mounted) Navigator.pop(context);
+    } on FirebaseAuthException catch (e) {
+      // pop the loading circle and display error message
+      if (mounted){
+        Navigator.pop(context);
+        displayMessageToUser(e.code, context);
+      }
     }
-
-    // display any error
-    on FirebaseAuthException catch (e) {
-      // pop the loading circle
-      Navigator.pop(context);
-      displayMessageToUser(e.code, context);
-    }
-    
   }
 
   @override
