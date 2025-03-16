@@ -51,6 +51,118 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
+  /// Shows a dialog that allows the user to request a password reset.
+  ///
+  /// Displays a dialog with an email input field and sends a password
+  /// reset email when the user submits their email address.
+  void _showForgotPasswordDialog() {
+    final resetEmailController = TextEditingController();
+    final theme = Theme.of(context);
+    
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text(
+          "Reset Password",
+          style: theme.textTheme.titleLarge,
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              "Enter your email address to receive a password reset link.",
+              style: theme.textTheme.bodyLarge,
+            ),
+            const SizedBox(height: 16),
+            MyTextfield(
+              hintText: "Email",
+              obscureText: false,
+              controller: resetEmailController,
+              keyboardType: TextInputType.emailAddress,
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(
+              "Cancel",
+              style: TextStyle(
+                color: theme.colorScheme.secondary,
+              ),
+            ),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+              if (resetEmailController.text.trim().isNotEmpty) {
+                _resetPassword(resetEmailController.text.trim());
+              } else {
+                displayMessageToUser("Please enter your email address.", context);
+              }
+            },
+            child: Text(
+              "Send Reset Link",
+              style: TextStyle(
+                color: theme.colorScheme.primary,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ],
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+      ),
+    );
+  }
+
+  /// Sends a password reset email to the specified email address.
+  ///
+  /// Displays a loading indicator during the process and shows
+  /// success or error messages to the user.
+  void _resetPassword(String email) async {
+    // Display loading indicator
+    showDialog(
+      context: context,
+      builder: (context) => const Center(
+        child: CircularProgressIndicator()),
+    );
+
+    try {
+      // Send password reset email
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      
+      // Remove loading indicator
+      if (mounted) Navigator.pop(context);
+      
+      // Show success message
+      displaySuccessMessage(
+        "Password reset link sent to $email. Please check your inbox.",
+        context
+      );
+    } on FirebaseAuthException catch (e) {
+      // Remove loading indicator and show error
+      if (mounted) {
+        Navigator.pop(context);
+        
+        // Display user-friendly error message
+        String errorMessage;
+        switch (e.code) {
+          case 'user-not-found':
+            errorMessage = "No account found with this email.";
+            break;
+          case 'invalid-email':
+            errorMessage = "Please enter a valid email address.";
+            break;
+          default:
+            errorMessage = "Failed to send reset email. Please try again.";
+        }
+        displayMessageToUser(errorMessage, context);
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -103,10 +215,13 @@ class _LoginPageState extends State<LoginPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Text(
-                    "Forgot Password?",
-                    style: theme.textTheme.bodyMedium?.copyWith(
-                      color: theme.colorScheme.secondary,
+                  GestureDetector(
+                    onTap: _showForgotPasswordDialog,
+                    child: Text(
+                      "Forgot Password?",
+                      style: theme.textTheme.bodyMedium?.copyWith(
+                        color: theme.colorScheme.secondary,
+                      ),
                     ),
                   ),
                 ],
