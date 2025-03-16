@@ -630,8 +630,7 @@ Most women who experience early pregnancy loss go on to have successful pregnanc
   ///
   /// Provides details about the definition, emotional impact, and medical
   /// investigations for those experiencing multiple consecutive pregnancy losses.
-  /// Note: The content appears to be truncated in the original source.
-  static const String _recurrentLossContent = '''
+static const String _recurrentLossContent = '''
 Recurrent pregnancy loss (RPL) is typically defined as three or more consecutive pregnancy losses. It affects approximately 1-2% of couples trying to conceive.
 
 When diagnosed with RPL, the emotional impact can be particularly difficult:
@@ -657,5 +656,47 @@ Medical investigation is usually recommended after three losses, though some pro
   - Luteal phase assessment
 
 • Blood clotting disorders:
-  - Antiphosp
-  ''';}
+  - Antiphospholipid syndrome testing
+  - Factor V Leiden and other thrombophilia testing
+
+• Immunological factors:
+  - Natural killer cell testing (in some specialist clinics)
+  - Autoimmune disorder screening
+
+• Lifestyle factors assessment:
+  - BMI evaluation
+  - Smoking and alcohol consumption
+  - Environmental exposures
+
+Potential causes of recurrent pregnancy loss include:
+• Chromosomal abnormalities (in either partner)
+• Uterine abnormalities (septum, fibroids, polyps)
+• Blood clotting disorders
+• Hormonal imbalances
+• Immunological factors
+• Chronic endometritis (uterine inflammation)
+• Lifestyle factors
+
+However, in approximately 50% of cases, no definitive cause is found despite thorough investigation. This can be particularly frustrating, but doesn't mean that future pregnancies won't be successful.
+
+Treatment options depend on identified causes:
+• Surgery for certain uterine abnormalities
+• Blood thinners for clotting disorders
+• Hormone supplementation for certain imbalances
+• Management of underlying medical conditions
+• Lifestyle modifications
+• In some cases, assisted reproductive technologies
+
+When no cause is found, supportive care with early and frequent monitoring in subsequent pregnancies is typically recommended. This includes:
+• Early ultrasounds to confirm viability
+• Hormone level monitoring
+• Regular check-ups with a specialist
+• Emotional support and counseling
+
+Success rates after recurrent losses:
+• Without intervention, 60-75% of women with unexplained RPL will have a successful next pregnancy
+• With appropriate treatment for identified causes, success rates may be higher
+• The chances of success may decrease with maternal age and number of previous losses
+
+Support is crucial when experiencing recurrent pregnancy loss. Organizations like Tommy's, The Miscarriage Association, and specialized recurrent miscarriage clinics offer resources specifically for those dealing with multiple losses.
+''';}
