@@ -36,7 +36,7 @@ class PersonalStoriesPage extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: AppTheme.withAlpha(Colors.amber, 0.2),
+              color: AppTheme.withAlpha(Colors.amber, 0.9),
               borderRadius: BorderRadius.circular(12),
               border: Border.all(color: Colors.amber, width: 1),
             ),

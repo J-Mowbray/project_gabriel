@@ -65,10 +65,10 @@ class AppTheme {
   static const Color darkCard = Color(0xFF2C2C2C);
   
   /// White primary text color for dark theme
-  static const Color darkTextPrimary = Color(0xFFFFFFFF);
+  static const Color darkTextPrimary = Color.fromARGB(255, 255, 255, 255);
   
   /// Light grey secondary text color for dark theme
-  static const Color darkTextSecondary = Color(0xFFCCCCCC);
+  static const Color darkTextSecondary = Color.fromARGB(255, 255, 255, 255);
   
   /// Dark grey divider color for dark theme separators
   static const Color darkDivider = Color(0xFF424242);
