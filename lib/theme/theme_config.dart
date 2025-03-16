@@ -13,8 +13,8 @@ class AppTheme {
   /// Primary brand color - main blue used throughout the app
   static const Color primaryColor = Color(0xFF2E7EED); // Brand blue
   
-  /// Secondary brand color - teal accent for complementary UI elements
-  static const Color secondaryColor = Color(0xFF26A69A); // Teal accent
+  /// Secondary brand color - red accent for complementary UI elements
+  static const Color secondaryColor = Color.fromARGB(255, 255, 0, 0); // Teal accent
   
   // Category-specific colors for navigation cards and section headers
   /// Blue color used for the Resources section UI elements
