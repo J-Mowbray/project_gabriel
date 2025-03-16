@@ -3,6 +3,13 @@ import 'package:gabrielsstar/components/base_page_layout.dart';
 import 'package:gabrielsstar/components/content_card.dart';
 import 'package:gabrielsstar/theme/theme_config.dart';
 
+/// SupportTipsPage provides guidance on supporting oneself and others through
+/// pregnancy and infant loss.
+///
+/// This page contains a collection of practical advice organized into different
+/// categories addressing self-care, supporting partners, family guidance, and more.
+/// It also includes helpful phrases to use and phrases to avoid when speaking with
+/// those experiencing loss.
 class SupportTipsPage extends StatelessWidget {
   const SupportTipsPage({super.key});
 
@@ -26,7 +33,7 @@ class SupportTipsPage extends StatelessWidget {
           ),
           const SizedBox(height: 24),
           
-          // Navigation sections - using ContentCard with onTap for modal
+          // Self-care tips for those experiencing loss
           ContentCard(
             title: 'Self-Care',
             content: "Taking care of yourself after loss is not selfish—it's necessary. Discover ways to support yourself during this difficult time.",
@@ -40,6 +47,7 @@ class SupportTipsPage extends StatelessWidget {
             ),
           ),
           
+          // Guidance for partners supporting each other through loss
           ContentCard(
             title: 'For Partners',
             content: "Partners often experience pregnancy and infant loss differently, but both parents' grief is valid and significant.",
@@ -53,6 +61,7 @@ class SupportTipsPage extends StatelessWidget {
             ),
           ),
           
+          // Advice for family members and friends who want to help
           ContentCard(
             title: 'For Family & Friends',
             content: 'Supporting someone through pregnancy or infant loss can be challenging. Learn how friends and family can help.',
@@ -66,6 +75,7 @@ class SupportTipsPage extends StatelessWidget {
             ),
           ),
           
+          // Guidance for supporting children affected by baby loss
           ContentCard(
             title: 'Supporting Children',
             content: 'When a baby dies, other children in the family are also affected by the loss. Learn ways to support them.',
@@ -79,6 +89,7 @@ class SupportTipsPage extends StatelessWidget {
             ),
           ),
           
+          // Information about returning to work after loss
           ContentCard(
             title: 'Returning to Work',
             content: 'Returning to work after pregnancy or baby loss can be challenging. Find guidance to help with this transition.',
@@ -92,6 +103,7 @@ class SupportTipsPage extends StatelessWidget {
             ),
           ),
           
+          // Advice for navigating significant dates and anniversaries
           ContentCard(
             title: 'Anniversary Dates',
             content: 'Anniversary dates and milestones can intensify grief. Learn ways to navigate these difficult times.',
@@ -105,7 +117,7 @@ class SupportTipsPage extends StatelessWidget {
             ),
           ),
           
-          // Helpful phrases and what not to say
+          // Section showing supportive phrases to use with bereaved families
           const SizedBox(height: 24),
           Text(
             'Helpful Things to Say',
@@ -114,6 +126,7 @@ class SupportTipsPage extends StatelessWidget {
           const SizedBox(height: 16),
           _buildQuoteList(context, _helpfulPhrases, Colors.green.shade100),
           
+          // Section showing phrases to avoid when speaking with bereaved families
           const SizedBox(height: 24),
           Text(
             'Things to Avoid Saying',
@@ -128,6 +141,17 @@ class SupportTipsPage extends StatelessWidget {
     );
   }
 
+  /// Displays detailed support content in a modal bottom sheet.
+  ///
+  /// Creates a draggable, scrollable sheet with comprehensive information on the
+  /// selected support topic. The sheet includes a styled header with an icon
+  /// corresponding to the topic category.
+  ///
+  /// Parameters:
+  ///   context - The build context
+  ///   title - The title of the support topic
+  ///   content - The detailed support content text to display
+  ///   iconColor - The color to apply to the icon in the header
   void _showSupportDetail(BuildContext context, String title, String content, Color iconColor) {
     final theme = Theme.of(context);
     
@@ -146,6 +170,7 @@ class SupportTipsPage extends StatelessWidget {
           builder: (_, controller) {
             return Column(
               children: [
+                // Modal header with title and appropriate icon
                 Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
@@ -155,6 +180,7 @@ class SupportTipsPage extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
+                      // Drag indicator for the modal sheet
                       Container(
                         width: 40,
                         height: 5,
@@ -187,6 +213,7 @@ class SupportTipsPage extends StatelessWidget {
                     ],
                   ),
                 ),
+                // Scrollable content area for the support information
                 Expanded(
                   child: ListView(
                     controller: controller,
@@ -207,7 +234,16 @@ class SupportTipsPage extends StatelessWidget {
     );
   }
 
-  // Helper method to get the appropriate icon based on the title
+  /// Returns the appropriate icon for a given support topic title.
+  ///
+  /// Maps each support category to its corresponding icon, ensuring consistent
+  /// visual representation across the app.
+  ///
+  /// Parameters:
+  ///   title - The title of the support category
+  ///
+  /// Returns:
+  ///   IconData - The icon to use for the specified category
   IconData _getIconForTitle(String title) {
     switch (title) {
       case 'Self-Care':
@@ -227,8 +263,21 @@ class SupportTipsPage extends StatelessWidget {
     }
   }
 
+  /// Creates a styled list of phrases with appropriate icons.
+  ///
+  /// Builds a list of containers with colored backgrounds and appropriate icons
+  /// to display either helpful or unhelpful phrases for supporting those
+  /// experiencing pregnancy or infant loss.
+  ///
+  /// Parameters:
+  ///   context - The build context
+  ///   quotes - A list of phrase strings to display
+  ///   backgroundColor - The background color for the containers
+  ///
+  /// Returns:
+  ///   Widget - A column containing the styled phrase containers
   Widget _buildQuoteList(BuildContext context, List<String> quotes, Color backgroundColor) {
-    // Always use dark text on light backgrounds and light text on dark backgrounds
+    // Automatically determine text color based on background brightness
     final textColor = backgroundColor.computeLuminance() > 0.5 
         ? Colors.black87  // Dark text on light backgrounds
         : Colors.white;   // Light text on dark backgrounds
@@ -271,7 +320,10 @@ class SupportTipsPage extends StatelessWidget {
     );
   }
 
-  // Content for different support sections
+  /// Content providing self-care guidance for individuals experiencing loss.
+  ///
+  /// Includes physical and emotional self-care strategies, advice on finding
+  /// support, and guidance on honoring the baby's memory.
   static const String _selfCareContent = '''
 Taking care of yourself after loss is not selfish—it's necessary. Here are some ways to support yourself during this difficult time:
 
@@ -311,6 +363,10 @@ Honoring Your Baby:
 Remember that healing is not linear, and there is no timeline for grief. Be gentle with yourself through this process.
 ''';
 
+  /// Content explaining how partners can support each other through loss.
+  ///
+  /// Addresses different grief styles, communication strategies, and ways
+  /// to maintain the relationship through the grief journey.
   static const String _partnerContent = '''
 Partners often experience pregnancy and infant loss differently, but both parents' grief is valid and significant. Here are ways to support each other:
 
@@ -351,6 +407,10 @@ These differences are normal and can be navigated with compassion and communicat
 Remember that many relationships are strengthened through shared grief, even though the process can be challenging.
 ''';
 
+  /// Content providing guidance for family and friends supporting bereaved parents.
+  ///
+  /// Includes practical support suggestions, communication advice, and ways
+  /// to be present for grieving families over time.
   static const String _familyFriendsContent = '''
 Supporting someone through pregnancy or infant loss can be challenging. Here's how friends and family can help:
 
@@ -397,6 +457,10 @@ Taking Care of Yourself:
 The most important thing you can do is acknowledge their loss and show that you're willing to support them through their grief journey.
 ''';
 
+  /// Content providing guidance for supporting children affected by baby loss.
+  ///
+  /// Includes age-appropriate communication strategies, understanding children's
+  /// grief reactions, and ways to involve them in remembrance activities.
   static const String _childrenContent = '''
 When a baby dies, other children in the family are also affected by the loss. Here are ways to support them:
 
@@ -438,6 +502,10 @@ Resources for children experiencing grief include school counselors, child psych
 Remember that children are resilient, especially when supported with honest communication and consistent care. They take cues from adults about how to respond to loss, so modeling healthy grief can help them develop their own coping skills.
 ''';
 
+  /// Content providing guidance on returning to work after loss.
+  ///
+  /// Addresses challenges of the workplace transition, communication strategies,
+  /// and advice for both the bereaved and their colleagues/managers.
   static const String _workContent = '''
 Returning to work after pregnancy or infant loss can be challenging. Here's guidance for navigating this transition:
 
@@ -485,6 +553,10 @@ Creating a Supportive Environment:
 Remember that returning to work can be both helpful (providing routine and purpose) and challenging (emotionally taxing). Each person's experience is unique, and flexibility is key to supporting successful transitions back to work.
 ''';
 
+  /// Content providing guidance on navigating significant dates after loss.
+  ///
+  /// Addresses how to handle anniversary dates, birthdays, holidays, and other
+  /// significant milestones that may intensify grief.
   static const String _anniversaryContent = '''
 Anniversary dates and milestones can intensify grief. Here are ways to navigate these difficult times:
 
@@ -533,7 +605,10 @@ For Family and Friends:
 Anniversary reactions can occur for many years. They often become less intense with time, but may always hold significance. Creating meaningful ways to honor your baby on these dates can transform difficult days into opportunities for connection and remembrance.
 ''';
 
-  // Lists of helpful and unhelpful phrases
+  /// Collection of supportive phrases to use when speaking with bereaved families.
+  ///
+  /// These phrases acknowledge the loss, show support, and validate grief
+  /// in helpful and compassionate ways.
   static const List<String> _helpfulPhrases = [
     "I'm so sorry for your loss.",
     "I'm here for you.",
@@ -547,6 +622,10 @@ Anniversary reactions can occur for many years. They often become less intense w
     "Your feelings are completely valid.",
   ];
 
+  /// Collection of phrases to avoid when speaking with bereaved families.
+  ///
+  /// These phrases can minimize grief, impose timelines, or attempt to find
+  /// silver linings that may be hurtful to those experiencing loss.
   static const List<String> _unhelpfulPhrases = [
     "At least you know you can get pregnant.",
     "Everything happens for a reason.",

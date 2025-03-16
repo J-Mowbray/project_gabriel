@@ -3,6 +3,12 @@ import 'package:gabrielsstar/components/base_page_layout.dart';
 import 'package:gabrielsstar/components/content_card.dart';
 import 'package:gabrielsstar/theme/theme_config.dart';
 
+/// PersonalStoriesPage displays shared experiences of pregnancy and infant loss.
+///
+/// This page provides a space for families to read personal narratives of loss,
+/// offering connection through shared experiences and remembrance of babies who
+/// have passed away. It includes a content warning, story previews, and modal views
+/// for full story content.
 class PersonalStoriesPage extends StatelessWidget {
   const PersonalStoriesPage({super.key});
 
@@ -26,7 +32,7 @@ class PersonalStoriesPage extends StatelessWidget {
           ),
           const SizedBox(height: 24),
           
-          // Content warning - this is a special alert container, so not using ContentCard
+          // Content warning alert with custom styling for visibility
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
@@ -51,7 +57,7 @@ class PersonalStoriesPage extends StatelessWidget {
           ),
           const SizedBox(height: 24),
           
-          // Gabriel's story - custom card since it has a specific layout
+          // Gabriel's story card with preview text and read more option
           _buildStoryCard(
             context,
             title: "Gabriel's Story",
@@ -62,7 +68,7 @@ class PersonalStoriesPage extends StatelessWidget {
             color: AppTheme.personalStoriesCardColor,
           ),
           
-          // Future feature - this can use ContentCard
+          // Placeholder for future story submission feature
           const SizedBox(height: 24),
           ContentCard(
             title: 'Share Your Story',
@@ -75,7 +81,20 @@ class PersonalStoriesPage extends StatelessWidget {
     );
   }
 
-  // The story card has a custom layout that's different from ContentCard
+  /// Creates a custom card widget for displaying personal stories.
+  ///
+  /// This method builds a card with a colored header containing the story title,
+  /// author information, and date, followed by a preview of the story content and
+  /// a button to read the full narrative in a modal sheet.
+  ///
+  /// Parameters:
+  ///   context - The build context
+  ///   title - The title of the story
+  ///   author - The name of the story author
+  ///   date - The date the story was published or the event occurred
+  ///   previewContent - A short excerpt of the story to display in the card
+  ///   fullContent - The complete story text
+  ///   color - The theme color to use for the card header
   Widget _buildStoryCard(
     BuildContext context, {
     required String title,
@@ -96,6 +115,7 @@ class PersonalStoriesPage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Story header with title, author, and date information
           Container(
             width: double.infinity,
             padding: const EdgeInsets.all(16),
@@ -121,6 +141,7 @@ class PersonalStoriesPage extends StatelessWidget {
               ],
             ),
           ),
+          // Story preview content and read more button
           Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
@@ -143,7 +164,18 @@ class PersonalStoriesPage extends StatelessWidget {
     );
   }
 
-  // Modal view with story details
+  /// Displays the full story content in a modal bottom sheet.
+  ///
+  /// Creates a draggable, scrollable sheet with the complete story text,
+  /// allowing users to read the entire narrative. The sheet includes a styled header
+  /// with the story title, author, and date.
+  ///
+  /// Parameters:
+  ///   context - The build context
+  ///   title - The title of the story
+  ///   author - The name of the story author
+  ///   date - The date the story was published or the event occurred
+  ///   content - The complete story text to display
   void _showFullStory(BuildContext context, String title, String author, String date, String content) {
     final theme = Theme.of(context);
     
@@ -162,8 +194,9 @@ class PersonalStoriesPage extends StatelessWidget {
           builder: (_, controller) {
             return Column(
               children: [
+                // Modal header with title, author, and date information
                 Container(
-                  width: double.infinity, // Full width container
+                  width: double.infinity,
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
                     color: theme.primaryColor,
@@ -172,6 +205,7 @@ class PersonalStoriesPage extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
+                      // Drag indicator for the modal sheet
                       Container(
                         width: 40,
                         height: 5,
@@ -199,6 +233,7 @@ class PersonalStoriesPage extends StatelessWidget {
                     ],
                   ),
                 ),
+                // Scrollable content area for the full story text
                 Expanded(
                   child: ListView(
                     controller: controller,
@@ -220,8 +255,11 @@ class PersonalStoriesPage extends StatelessWidget {
     );
   }
   
-
-  // Content for Gabriel's story
+  /// The complete text of Gabriel's story.
+  ///
+  /// This narrative shares the experience of losing Gabriel at 17 weeks and 6 days
+  /// gestation, and describes the family's journey through grief, the support they
+  /// received, and how the app was created as a memorial to honor Gabriel's memory.
   static const String _gabrielsStory = '''
 On the 19th of September 2024, at 1:44 in the afternoon, my baby son, Gabriel, was born too soon at 17 weeks and 6 days gestation. This is his story.
 

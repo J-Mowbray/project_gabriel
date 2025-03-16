@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:gabrielsstar/components/base_page_layout.dart';
-import 'package:gabrielsstar/components/content_card.dart'; // Import your ContentCard
+import 'package:gabrielsstar/components/content_card.dart';
 import 'package:gabrielsstar/theme/theme_config.dart';
 
+/// AwarenessPage provides information about pregnancy and infant loss statistics
+/// and ways to raise awareness.
+///
+/// This page presents current statistics, awareness campaigns, ways to get
+/// involved, and information about breaking the stigma and silence around
+/// pregnancy and infant loss.
 class AwarenessPage extends StatelessWidget {
   const AwarenessPage({super.key});
 
@@ -26,7 +32,7 @@ class AwarenessPage extends StatelessWidget {
           ),
           const SizedBox(height: 24),
           
-          // Key statistics section
+          // Statistical information about pregnancy and infant loss
           _buildSection(
             context,
             title: 'Key Statistics',
@@ -68,7 +74,7 @@ class AwarenessPage extends StatelessWidget {
             ],
           ),
           
-          // Awareness campaigns section
+          // Information about established awareness campaigns and events
           _buildSection(
             context,
             title: 'Awareness Campaigns',
@@ -94,7 +100,7 @@ class AwarenessPage extends StatelessWidget {
             ],
           ),
           
-          // How to get involved section
+          // Ways users can participate in awareness activities
           _buildSection(
             context,
             title: 'How to Get Involved',
@@ -132,7 +138,7 @@ class AwarenessPage extends StatelessWidget {
             ],
           ),
           
-          // Breaking the silence section
+          // Information about reducing stigma around loss
           _buildSection(
             context,
             title: 'Breaking the Silence',
@@ -158,6 +164,16 @@ class AwarenessPage extends StatelessWidget {
     );
   }
 
+  /// Creates a titled section containing a list of awareness content cards.
+  ///
+  /// This helper method builds a consistent section layout with a heading and
+  /// a collection of widgets (typically cards), separated by a divider
+  /// from the next section.
+  ///
+  /// Parameters:
+  ///   context - The build context
+  ///   title - The section heading text
+  ///   children - A list of widgets to display in the section
   Widget _buildSection(BuildContext context, {required String title, required List<Widget> children}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -176,7 +192,18 @@ class AwarenessPage extends StatelessWidget {
     );
   }
 
-  // Keep the custom statistic card since it has a unique layout
+  /// Creates a specialized card for displaying statistical information.
+  ///
+  /// This card has a distinct layout from standard ContentCards, featuring
+  /// a prominent statistic display with a colored background, followed by
+  /// a description and source citation.
+  ///
+  /// Parameters:
+  ///   context - The build context
+  ///   statistic - The key figure or number to prominently display
+  ///   description - Text explaining the meaning of the statistic
+  ///   source - Attribution information for the statistical data
+  ///   color - Accent color for the statistic display
   Widget _buildStatisticCard(
     BuildContext context, {
     required String statistic,
@@ -197,6 +224,7 @@ class AwarenessPage extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Highlighted statistic display with colored background
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
@@ -216,6 +244,7 @@ class AwarenessPage extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 16),
+            // Description and source citation
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

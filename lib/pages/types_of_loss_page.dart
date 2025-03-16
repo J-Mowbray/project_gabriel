@@ -3,6 +3,12 @@ import 'package:gabrielsstar/components/base_page_layout.dart';
 import 'package:gabrielsstar/components/content_card.dart';
 import 'package:gabrielsstar/theme/theme_config.dart';
 
+/// TypesOfLossPage provides educational information about different forms of 
+/// pregnancy and infant loss.
+///
+/// This page presents various types of loss with brief descriptions in cards that
+/// expand to provide more detailed medical information when tapped. The content 
+/// aims to help users understand the medical aspects of their loss experience.
 class TypesOfLossPage extends StatelessWidget {
   const TypesOfLossPage({super.key});
 
@@ -33,7 +39,7 @@ class TypesOfLossPage extends StatelessWidget {
           ),
           const SizedBox(height: 24),
           
-          // Now using ContentCard components with onTap for modal
+          // Information about miscarriage - loss before 24 weeks gestation
           ContentCard(
             title: 'Miscarriage',
             content: 'The loss of a pregnancy before 24 weeks of gestation.',
@@ -47,6 +53,7 @@ class TypesOfLossPage extends StatelessWidget {
             ),
           ),
           
+          // Information about stillbirth - loss after 24 weeks gestation
           ContentCard(
             title: 'Stillbirth',
             content: 'When a baby is born deceased after 24 weeks of pregnancy.',
@@ -60,6 +67,7 @@ class TypesOfLossPage extends StatelessWidget {
             ),
           ),
           
+          // Information about ectopic pregnancy - implantation outside uterus
           ContentCard(
             title: 'Ectopic Pregnancy',
             content: 'When a fertilized egg implants outside the uterus, most commonly in a fallopian tube.',
@@ -73,6 +81,7 @@ class TypesOfLossPage extends StatelessWidget {
             ),
           ),
           
+          // Information about molar pregnancy - abnormal growth instead of embryo
           ContentCard(
             title: 'Molar Pregnancy',
             content: 'A rare complication where tissue that normally becomes a fetus instead becomes an abnormal growth in the uterus.',
@@ -86,6 +95,7 @@ class TypesOfLossPage extends StatelessWidget {
             ),
           ),
           
+          // Information about TFMR - ending pregnancy for medical reasons
           ContentCard(
             title: 'Termination for Medical Reasons (TFMR)',
             content: 'The difficult decision to end a wanted pregnancy due to severe fetal abnormalities or risks to maternal health.',
@@ -99,6 +109,7 @@ class TypesOfLossPage extends StatelessWidget {
             ),
           ),
           
+          // Information about neonatal death - loss within first 28 days of life
           ContentCard(
             title: 'Neonatal Death',
             content: 'The death of a newborn baby within the first 28 days of life.',
@@ -112,6 +123,7 @@ class TypesOfLossPage extends StatelessWidget {
             ),
           ),
           
+          // Information about SIDS - unexpected infant death during sleep
           ContentCard(
             title: 'Sudden Infant Death Syndrome (SIDS)',
             content: 'The unexplained death of a seemingly healthy baby, usually during sleep.',
@@ -125,6 +137,7 @@ class TypesOfLossPage extends StatelessWidget {
             ),
           ),
           
+          // Information about early pregnancy loss - first trimester losses
           ContentCard(
             title: 'Early Pregnancy Loss',
             content: 'Loss that occurs in the first trimester (first 12 weeks) of pregnancy.',
@@ -138,6 +151,7 @@ class TypesOfLossPage extends StatelessWidget {
             ),
           ),
           
+          // Information about recurrent pregnancy loss - multiple consecutive losses
           ContentCard(
             title: 'Recurrent Pregnancy Loss',
             content: 'The experience of three or more consecutive pregnancy losses.',
@@ -155,6 +169,17 @@ class TypesOfLossPage extends StatelessWidget {
     );
   }
 
+  /// Displays detailed information about a specific type of loss in a modal bottom sheet.
+  ///
+  /// Creates a draggable, scrollable sheet with comprehensive medical information
+  /// about the selected loss type. The sheet includes a styled header with the
+  /// loss type name and an information icon.
+  ///
+  /// Parameters:
+  ///   context - The build context
+  ///   title - The name of the loss type
+  ///   content - The detailed medical information text to display
+  ///   iconColor - The color to apply to the header (visual category indicator)
   void _showLossDetail(BuildContext context, String title, String content, Color iconColor) {
     final theme = Theme.of(context);
     
@@ -173,6 +198,7 @@ class TypesOfLossPage extends StatelessWidget {
           builder: (_, controller) {
             return Column(
               children: [
+                // Modal header with loss type title and information icon
                 Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
@@ -182,6 +208,7 @@ class TypesOfLossPage extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
+                      // Drag indicator for the modal sheet
                       Container(
                         width: 40,
                         height: 5,
@@ -214,6 +241,7 @@ class TypesOfLossPage extends StatelessWidget {
                     ],
                   ),
                 ),
+                // Scrollable content area for the detailed medical information
                 Expanded(
                   child: ListView(
                     controller: controller,
@@ -234,7 +262,10 @@ class TypesOfLossPage extends StatelessWidget {
     );
   }
 
-  // Content for different types of loss
+  /// Medical information about miscarriage.
+  ///
+  /// Provides details about the definition, types, symptoms, causes, and 
+  /// management of miscarriage, which is pregnancy loss before 24 weeks gestation.
   static const String _miscarriageContent = '''
 Miscarriage is the most common type of pregnancy loss, affecting approximately 1 in 4 pregnancies. While it's often defined medically as loss before 24 weeks, many healthcare providers further categorize miscarriages:
 
@@ -273,6 +304,10 @@ Facts to remember:
 • Support is available to help you through this difficult experience
 ''';
 
+  /// Medical information about stillbirth.
+  ///
+  /// Provides details about the definition, causes, hospital protocols, physical
+  /// recovery, and support options for stillbirth, which is loss after 24 weeks gestation.
   static const String _stillbirthContent = '''
 Stillbirth is defined as the birth of a baby who has died before or during delivery after 24 weeks of pregnancy. In the UK, approximately 1 in every 250 pregnancies ends in stillbirth.
 
@@ -315,6 +350,10 @@ Support after stillbirth:
 It's important to know that many people who experience stillbirth do go on to have subsequent healthy pregnancies, often with additional monitoring and support.
 ''';
 
+  /// Medical information about ectopic pregnancy.
+  ///
+  /// Provides details about the definition, symptoms, risk factors, treatment
+  /// options, and recovery for ectopic pregnancy, when implantation occurs outside the uterus.
   static const String _ectopicContent = '''
 An ectopic pregnancy occurs when a fertilized egg implants and grows outside the main cavity of the uterus, most commonly in a fallopian tube. This type of pregnancy cannot proceed normally and requires medical intervention.
 
@@ -355,6 +394,10 @@ Follow-up care is important to:
 Most women who have had an ectopic pregnancy can go on to have a normal pregnancy in the future, though there is a slightly higher risk of another ectopic pregnancy.
 ''';
 
+  /// Medical information about molar pregnancy.
+  ///
+  /// Provides details about the definition, types, symptoms, diagnosis, treatment,
+  /// and follow-up care for molar pregnancy, an abnormal growth instead of normal embryo development.
   static const String _molarContent = '''
 A molar pregnancy (also called hydatidiform mole) is a rare complication where tissue that normally becomes a fetus instead develops into an abnormal growth in the uterus. It's a type of gestational trophoblastic disease (GTD).
 
@@ -396,6 +439,10 @@ After one molar pregnancy:
 Support is available through specialized follow-up clinics and organizations focused on this rare condition.
 ''';
 
+  /// Medical information about termination for medical reasons.
+  ///
+  /// Provides details about the definition, reasons, decision process, procedures,
+  /// and support options for termination of pregnancy due to medical indications.
   static const String _tfmrContent = '''
 Termination for Medical Reasons (TFMR) refers to ending a wanted pregnancy due to severe fetal abnormalities or to protect the mother's health. This is one of the most difficult decisions parents may face.
 
@@ -437,6 +484,10 @@ Support resources include:
 It's important to know that many families who experience TFMR do go on to have healthy pregnancies in the future, often with additional prenatal testing and monitoring.
 ''';
 
+  /// Medical information about neonatal death.
+  ///
+  /// Provides details about the definition, causes, hospital care, memory-making,
+  /// and support options for the death of a baby within the first 28 days of life.
   static const String _neonatalContent = '''
 Neonatal death refers to the death of a baby within the first 28 days after birth. This period is further divided into early neonatal death (first 7 days) and late neonatal death (days 8-28).
 
@@ -480,6 +531,10 @@ Partners and siblings will also need support during this time, and family-center
 Organizations like Sands provide specialized support for families experiencing neonatal death.
 ''';
 
+  /// Medical information about Sudden Infant Death Syndrome.
+  ///
+  /// Provides details about the definition, risk factors, emergency protocols,
+  /// support after loss, and safe sleep guidelines to reduce SIDS risk.
   static const String _sidsContent = '''
 Sudden Infant Death Syndrome (SIDS), sometimes called cot death, is the sudden, unexpected death of a seemingly healthy baby, usually during sleep, that remains unexplained even after thorough investigation.
 
@@ -524,6 +579,10 @@ While nothing can guarantee prevention of SIDS, the "Safer Sleep" guidelines rec
 • Keep the sleep space clear of pillows, toys, and loose bedding
 ''';
 
+  /// Medical information about early pregnancy loss.
+  ///
+  /// Provides details about the definition, frequency, symptoms, causes, management,
+  /// and recovery for losses occurring within the first 12 weeks of pregnancy.
   static const String _earlyLossContent = '''
 Early pregnancy loss occurs in the first trimester (first 12 weeks) of pregnancy. This category includes chemical pregnancies, which are very early miscarriages that occur shortly after implantation.
 
@@ -567,6 +626,11 @@ Support after early loss:
 Most women who experience early pregnancy loss go on to have successful pregnancies. After one early loss, there is usually no need for specialized testing before trying again.
 ''';
 
+  /// Medical information about recurrent pregnancy loss.
+  ///
+  /// Provides details about the definition, emotional impact, and medical
+  /// investigations for those experiencing multiple consecutive pregnancy losses.
+  /// Note: The content appears to be truncated in the original source.
   static const String _recurrentLossContent = '''
 Recurrent pregnancy loss (RPL) is typically defined as three or more consecutive pregnancy losses. It affects approximately 1-2% of couples trying to conceive.
 

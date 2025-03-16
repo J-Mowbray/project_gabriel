@@ -4,8 +4,13 @@ import 'package:gabrielsstar/components/my_textfield.dart';
 import 'package:gabrielsstar/helper/helper_functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-
+/// RegisterPage handles user account creation via email and password.
+///
+/// This screen provides a form for new users to create an account by entering
+/// their name, email, and password, with validation to ensure password fields match
+/// before submitting to Firebase Authentication.
 class RegisterPage extends StatefulWidget {
+  /// Callback function triggered when the user wants to navigate to the login page.
   final void Function()? onTap;
 
   const RegisterPage({super.key, required this.onTap});
@@ -15,45 +20,48 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  // text controller
+  // Controllers for the input fields
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPwController = TextEditingController();
 
-  // register method
+  /// Registers a new user with Firebase Authentication.
+  ///
+  /// Validates that password fields match before attempting to create a new user
+  /// account. Displays loading indicator during registration process and handles
+  /// potential authentication errors with appropriate user messages.
   void registerUser() async {
-    // show loading circle
+    // Display loading indicator while registration is in progress
     showDialog(
       context: context,
       builder: (context) => const Center(child: CircularProgressIndicator()),
     );
 
-    // make sure passwords match
+    // Validate that passwords match before proceeding with registration
     if (passwordController.text != confirmPwController.text) {
-      // pop loading circle
+      // Remove loading indicator
       Navigator.pop(context);
 
-      // show error message to user
+      // Notify user of password mismatch
       displayMessageToUser("Entered Passwords don't match!", context);
 
-      // if passwords do match
     } else {
-      // try creating the user
+      // Attempt to create a new user account with Firebase Authentication
       try {
-        // create the user
+        // Create the user with email and password
         UserCredential? userCredential = await FirebaseAuth.instance
             .createUserWithEmailAndPassword(
               email: emailController.text,
               password: passwordController.text,
             );
 
-        // pop the loading circle
+        // Remove loading indicator after successful registration
         if (mounted) {
           Navigator.pop(context);
         }
       } on FirebaseAuthException catch (e) {
-        // pop loading circle
+        // Handle authentication errors
         if (mounted) {
           Navigator.pop(context);
           displayMessageToUser(e.code, context);
@@ -74,7 +82,7 @@ class _RegisterPageState extends State<RegisterPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // logo
+              // App logo representation
               Icon(
                 Icons.person,
                 size: 80,
@@ -83,7 +91,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
               const SizedBox(height: 25),
 
-              // app name
+              // Application name display
               Text(
                 "Gabriel's Star", 
                 style: theme.textTheme.headlineMedium,
@@ -91,7 +99,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
               const SizedBox(height: 50),
 
-              // name textfield
+              // Name input field
               MyTextfield(
                 hintText: "Name",
                 obscureText: false,
@@ -100,7 +108,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
               const SizedBox(height: 10),
 
-              // email textfield
+              // Email input field with email keyboard type
               MyTextfield(
                 hintText: "Email",
                 obscureText: false,
@@ -110,7 +118,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
               const SizedBox(height: 10),
 
-              // password textfield
+              // Password input field with obscured text
               MyTextfield(
                 hintText: "Password",
                 obscureText: true,
@@ -119,7 +127,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
               const SizedBox(height: 10),
 
-              // confirm password textfield
+              // Confirm password input field with obscured text
               MyTextfield(
                 hintText: "Confirm Password",
                 obscureText: true,
@@ -128,7 +136,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
               const SizedBox(height: 10),
 
-              //forgot password
+              // Forgot password option
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -143,12 +151,12 @@ class _RegisterPageState extends State<RegisterPage> {
 
               const SizedBox(height: 25),
 
-              // register button
+              // Register button to initiate account creation
               MyButton(text: "Register", onTap: registerUser),
 
               const SizedBox(height: 25),
 
-              //don't have an account sign in
+              // Login option for existing users
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

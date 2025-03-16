@@ -4,6 +4,12 @@ import 'package:gabrielsstar/components/base_page_layout.dart';
 import 'package:gabrielsstar/components/content_card.dart';
 import 'package:gabrielsstar/theme/theme_config.dart';
 
+/// SupportNetworksPage displays organizations that provide support for families
+/// experiencing pregnancy and infant loss.
+///
+/// This page categorizes support organizations by region and type, providing
+/// information about each organization and links to their websites where users
+/// can access help and resources.
 class SupportNetworksPage extends StatelessWidget {
   const SupportNetworksPage({super.key});
 
@@ -27,7 +33,7 @@ class SupportNetworksPage extends StatelessWidget {
           ),
           const SizedBox(height: 24),
           
-          // Information note about websites
+          // Information note about contacting organizations
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
@@ -56,7 +62,7 @@ class SupportNetworksPage extends StatelessWidget {
           ),
           const SizedBox(height: 24),
           
-          // UK Organizations
+          // UK support organizations section
           _buildSection(
             context,
             'UK Organizations',
@@ -106,7 +112,7 @@ class SupportNetworksPage extends StatelessWidget {
             ],
           ),
           
-          // Support for Partners
+          // Support resources specifically for partners/fathers
           _buildSection(
             context,
             'Support for Partners',
@@ -128,7 +134,7 @@ class SupportNetworksPage extends StatelessWidget {
             ],
           ),
           
-          // International Organizations
+          // Global organizations for pregnancy and infant loss support
           _buildSection(
             context,
             'International Organizations',
@@ -150,7 +156,7 @@ class SupportNetworksPage extends StatelessWidget {
             ],
           ),
           
-          // Online Communities
+          // Virtual communities and online support groups
           _buildSection(
             context,
             'Online Communities',
@@ -172,7 +178,7 @@ class SupportNetworksPage extends StatelessWidget {
             ],
           ),
           
-          // Local Support
+          // Information about finding local in-person support
           _buildSection(
             context,
             'Local Support',
@@ -190,6 +196,16 @@ class SupportNetworksPage extends StatelessWidget {
     );
   }
 
+  /// Creates a titled section containing a list of support organization cards.
+  ///
+  /// This helper method builds a consistent section layout with a heading and
+  /// a collection of content cards representing support organizations or resources,
+  /// separated by a divider from the next section.
+  ///
+  /// Parameters:
+  ///   context - The build context
+  ///   title - The section heading text
+  ///   cards - A list of widgets (typically ContentCard widgets) to display in the section
   Widget _buildSection(BuildContext context, String title, List<Widget> cards) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -208,7 +224,14 @@ class SupportNetworksPage extends StatelessWidget {
     );
   }
 
-  // Function to launch URLs
+  /// Opens the specified URL in the device's external browser.
+  ///
+  /// This method attempts to launch the provided URL in the device's default
+  /// external browser application. If the URL cannot be launched, an exception
+  /// is thrown with an error message.
+  ///
+  /// Parameters:
+  ///   urlString - The web address to open
   Future<void> _launchURL(String urlString) async {
     final Uri url = Uri.parse(urlString);
     if (!await launchUrl(url, mode: LaunchMode.externalApplication)) {

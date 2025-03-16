@@ -4,8 +4,12 @@ import 'package:gabrielsstar/components/my_button.dart';
 import 'package:gabrielsstar/components/my_textfield.dart';
 import 'package:gabrielsstar/helper/helper_functions.dart';
 
-
+/// LoginPage handles user authentication through email and password.
+///
+/// This screen provides a form for existing users to sign in to the application
+/// and contains a link to the registration page for new users.
 class LoginPage extends StatefulWidget {
+  /// Callback function triggered when the user wants to navigate to registration.
   final void Function()? onTap;
 
   const LoginPage({super.key, required this.onTap});
@@ -15,28 +19,31 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  // text controller
+  // Controllers for the input fields
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  // login method
+  /// Attempts to authenticate the user with Firebase using email and password.
+  ///
+  /// Displays a loading indicator during authentication and handles potential
+  /// authentication errors by showing appropriate messages to the user.
   void login() async {
-    // show loading circle
+    // Display loading indicator while authentication is in progress
     showDialog(
       context: context,
       builder: (context) => const Center(
         child: CircularProgressIndicator()),
     );
 
-    // try sign in
+    // Attempt to sign in with Firebase Authentication
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: emailController.text, password: passwordController.text);
 
-      // pop the loading circle
+      // Remove loading indicator after successful authentication
       if (mounted) Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
-      // pop the loading circle and display error message
+      // Handle authentication errors by displaying appropriate messages
       if (mounted){
         Navigator.pop(context);
         displayMessageToUser(e.code, context);
@@ -56,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // logo
+              // App logo representation
               Icon(
                 Icons.person,
                 size: 80,
@@ -65,7 +72,7 @@ class _LoginPageState extends State<LoginPage> {
 
               const SizedBox(height: 25),
 
-              // app name
+              // Application name display
               Text(
                 "Gabriel's Star", 
                 style: theme.textTheme.headlineMedium,
@@ -73,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
 
               const SizedBox(height: 50),
 
-              // email textfield
+              // Email input field
               MyTextfield(
                 hintText: "Email",
                 obscureText: false,
@@ -83,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
 
               const SizedBox(height: 10),
 
-              // password textfield
+              // Password input field with obscured text
               MyTextfield(
                 hintText: "Password",
                 obscureText: true,
@@ -92,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
 
               const SizedBox(height: 10),
 
-              //forgot password
+              // Forgot password option
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -107,12 +114,12 @@ class _LoginPageState extends State<LoginPage> {
 
               const SizedBox(height: 25),
 
-              //sign in button
+              // Login button to initiate authentication
               MyButton(text: "Login", onTap: login),
 
               const SizedBox(height: 25),
 
-              //don't have an account sign in
+              // Registration option for new users
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

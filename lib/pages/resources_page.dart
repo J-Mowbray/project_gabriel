@@ -3,6 +3,12 @@ import 'package:gabrielsstar/components/base_page_layout.dart';
 import 'package:gabrielsstar/components/content_card.dart'; 
 import 'package:gabrielsstar/theme/theme_config.dart';
 
+/// ResourcesPage provides helpful information for families experiencing pregnancy and infant loss.
+///
+/// This page organizes essential resources into themed sections, covering topics like
+/// what to expect after loss, family support, memory making, and practical matters.
+/// Each resource is presented as a card that can be tapped to view detailed content
+/// in a modal bottom sheet.
 class ResourcesPage extends StatelessWidget {
   const ResourcesPage({super.key});
 
@@ -26,7 +32,7 @@ class ResourcesPage extends StatelessWidget {
           ),
           const SizedBox(height: 24),
           
-          // What to expect section
+          // "What to Expect" section with resources for immediate aftermath of loss
           _buildSection(
             context,
             'What to Expect',
@@ -70,7 +76,7 @@ class ResourcesPage extends StatelessWidget {
             ],
           ),
           
-          // For families section
+          // "For Families" section with resources to support family members
           _buildSection(
             context,
             'For Families',
@@ -114,7 +120,7 @@ class ResourcesPage extends StatelessWidget {
             ],
           ),
           
-          // Memory making section
+          // "Memory Making" section with resources for honoring and remembering babies
           _buildSection(
             context,
             'Memory Making',
@@ -158,7 +164,7 @@ class ResourcesPage extends StatelessWidget {
             ],
           ),
           
-          // Practical matters section
+          // "Practical Matters" section with resources for navigating logistical challenges
           _buildSection(
             context,
             'Practical Matters',
@@ -206,6 +212,15 @@ class ResourcesPage extends StatelessWidget {
     );
   }
 
+  /// Creates a titled section containing a list of resource cards.
+  ///
+  /// This helper method builds a consistent section layout with a title and 
+  /// a collection of content cards, separated by a divider from the next section.
+  ///
+  /// Parameters:
+  ///   context - The build context
+  ///   title - The section heading text
+  ///   cards - A list of widgets (typically ContentCard widgets) to display in the section
   Widget _buildSection(BuildContext context, String title, List<Widget> cards) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -224,6 +239,17 @@ class ResourcesPage extends StatelessWidget {
     );
   }
 
+  /// Displays detailed resource content in a modal bottom sheet.
+  ///
+  /// Creates a draggable, scrollable sheet with the complete resource text,
+  /// allowing users to read comprehensive information on the selected topic.
+  /// The sheet includes a styled header with an icon and the resource title.
+  ///
+  /// Parameters:
+  ///   context - The build context
+  ///   title - The title of the resource
+  ///   content - The detailed content text to display
+  ///   icon - Optional icon to display in the header (default is info_outline)
   void _showResourceDetail(
     BuildContext context, 
     String title, 
@@ -247,6 +273,7 @@ class ResourcesPage extends StatelessWidget {
           builder: (_, controller) {
             return Column(
               children: [
+                // Modal header with title and icon
                 Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
@@ -256,6 +283,7 @@ class ResourcesPage extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
+                      // Drag indicator for the modal sheet
                       Container(
                         width: 40,
                         height: 5,
@@ -288,6 +316,7 @@ class ResourcesPage extends StatelessWidget {
                     ],
                   ),
                 ),
+                // Scrollable content area for the resource text
                 Expanded(
                   child: ListView(
                     controller: controller,
@@ -308,7 +337,10 @@ class ResourcesPage extends StatelessWidget {
     );
   }
 
-  // Resource content - These would be longer and more detailed in the actual app
+  /// Resource content for immediate steps after pregnancy or infant loss.
+  ///
+  /// Provides information about hospital procedures, memory-making opportunities,
+  /// and important decisions that families may need to make in the days following loss.
   static const String _immediateNextStepsContent = '''
 When you experience the loss of a baby, the following days can feel overwhelming. Here are some things that might happen and decisions you may need to make:
 
@@ -325,6 +357,10 @@ When you experience the loss of a baby, the following days can feel overwhelming
 Remember that hospital staff, particularly bereavement midwives and officers, are there to support you through these decisions. Don't hesitate to ask questions or for more time if you need it.
 ''';
 
+  /// Resource content for physical recovery after pregnancy or infant loss.
+  ///
+  /// Provides information about physical changes, recovery, and important
+  /// warning signs to watch for following pregnancy loss.
   static const String _physicalRecoveryContent = '''
 After pregnancy loss, your body will go through a recovery process. Here's what you might experience:
 
@@ -349,6 +385,10 @@ Contact your healthcare provider immediately if you experience any of these symp
 Your follow-up appointment is important for checking your physical recovery. Don't hesitate to ask questions about your physical healing and any concerns you have about future pregnancies.
 ''';
 
+  /// Resource content about the emotional aspects of grief following loss.
+  ///
+  /// Describes the range of emotions that may be experienced during grief,
+  /// validating different responses and providing coping strategies.
   static const String _emotionalJourneyContent = '''
 Grief after pregnancy loss is a deeply personal experience that can involve a wide range of emotions. Here's what you might experience:
 
@@ -380,6 +420,10 @@ Strategies that might help:
 Most importantly, remember that you are not alone, and support is available when you need it.
 ''';
 
+  /// Resource content for explaining loss to children.
+  ///
+  /// Provides age-appropriate guidance for discussing pregnancy or infant loss
+  /// with siblings and supporting children through grief.
   static const String _talkingToChildrenContent = '''
 Explaining the loss of a baby to other children in the family can be challenging. Here are some age-appropriate approaches:
 
@@ -418,6 +462,10 @@ Children's reactions may include:
 Consider children's books about pregnancy loss or sibling grief as helpful tools for discussion. School counselors can also provide support if children are struggling.
 ''';
 
+  /// Resource content about supporting partners through grief.
+  ///
+  /// Addresses how couples may experience grief differently and provides
+  /// guidance for maintaining communication and supporting each other.
   static const String _supportingPartnerContent = '''
 Couples often experience grief differently, which can sometimes lead to misunderstandings or feelings of isolation. Understanding these differences can help you support each other:
 
@@ -449,6 +497,10 @@ When to seek help:
 Remember that many couples experience relationship strain after pregnancy loss, but with communication and support, your relationship can survive and even strengthen through this difficult experience.
 ''';
 
+  /// Resource content about extended family support and interactions.
+  ///
+  /// Provides guidance for communicating needs to extended family members
+  /// and involving them in the grieving and remembrance process.
   static const String _extendedFamilyContent = '''
 Extended family members and friends can be important sources of support, but interactions can sometimes be complicated by different grief responses or unhelpful comments. Here are some strategies for navigating these relationships:
 
@@ -478,6 +530,10 @@ Supporting grandparents and others:
 Remember that you don't need to manage others' emotions while dealing with your own grief. It's okay to take space from relationships that drain rather than support you during this time.
 ''';
 
+  /// Resource content about creating physical mementos.
+  ///
+  /// Provides ideas for creating and preserving tangible memories
+  /// of babies who have died through pregnancy or infant loss.
   static const String _mementosContent = '''
 Creating tangible memories of your baby can be meaningful and healing. Here are some ways to create mementos:
 
@@ -517,6 +573,10 @@ Digital memorials:
 The hospital bereavement team may provide some of these items or direct you to organizations that offer them. Many parents find that creating and displaying these mementos helps acknowledge their baby's existence and importance in the family.
 ''';
 
+  /// Resource content about creating memorials and tributes.
+  ///
+  /// Provides ideas for formal and informal ways to memorialize and
+  /// honor babies who have died through pregnancy or infant loss.
   static const String _memorialIdeasContent = '''
 Creating a memorial for your baby can provide a meaningful way to honor their memory and give you a space for reflection and remembrance. Here are some memorial ideas:
 
@@ -554,6 +614,10 @@ Creative expressions:
 Remember that memorials can be as private or public as you feel comfortable with. They can evolve over time as your grief journey continues, and you can create different types of memorials for different occasions or milestones.
 ''';
 
+  /// Resource content about marking significant dates and anniversaries.
+  ///
+  /// Provides guidance for remembering and honoring babies on special dates,
+  /// including birthdays, due dates, and awareness events.
   static const String _annualRemembranceContent = '''
 Finding ways to mark significant dates and anniversaries can be an important part of your ongoing journey with grief. Here are some ideas for annual remembrance:
 
@@ -588,6 +652,10 @@ Remember that grief can be unpredictable, and anniversary dates may bring strong
 Many parents find that while the intensity of grief may change over time, maintaining these remembrance rituals provides a special time to connect with their baby's memory year after year.
 ''';
 
+  /// Resource content about financial considerations after loss.
+  ///
+  /// Provides information about financial support, benefits, and
+  /// considerations for families following pregnancy or infant loss.
   static const String _financialSupportContent = '''
 The financial aspects of pregnancy and baby loss can add stress during an already difficult time. Here is information about potential financial support and considerations:
 
@@ -627,6 +695,10 @@ Planning ahead:
 If you're struggling financially, reach out to citizens advice or specialist financial support services. Remember that it's okay to ask for help during this difficult time.
 ''';
 
+  /// Resource content about returning to work after loss.
+  ///
+  /// Provides guidance for transitioning back to work, communicating with
+  /// colleagues, and managing grief in the workplace.
   static const String _returningToWorkContent = '''
 Returning to work after pregnancy or baby loss can be challenging emotionally and practically. Here's guidance to help with this transition:
 
@@ -663,6 +735,10 @@ For managers supporting employees:
 Remember that returning to work can be both helpful (providing routine and distraction) and challenging. Be patient with yourself, and don't hesitate to communicate your needs or seek additional support if the transition proves difficult.
 ''';
 
+  /// Resource content about legal rights and entitlements after loss.
+  ///
+  /// Provides information about legal documentation, employment rights,
+  /// and entitlements based on the gestational age at time of loss.
   static const String _legalRightsContent = '''
 Understanding your legal rights and entitlements following pregnancy or baby loss can help you make informed decisions. Here's information about key legal considerations:
 
