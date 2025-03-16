@@ -4,6 +4,7 @@ import 'package:gabrielsstar/components/my_textfield.dart';
 import 'package:gabrielsstar/helper/helper_functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+
 class RegisterPage extends StatefulWidget {
   final void Function()? onTap;
 
@@ -16,11 +17,8 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   // text controller
   final TextEditingController nameController = TextEditingController();
-
   final TextEditingController emailController = TextEditingController();
-
   final TextEditingController passwordController = TextEditingController();
-
   final TextEditingController confirmPwController = TextEditingController();
 
   // register method
@@ -66,8 +64,10 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.surface,
+      backgroundColor: theme.scaffoldBackgroundColor,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(25.0),
@@ -78,18 +78,20 @@ class _RegisterPageState extends State<RegisterPage> {
               Icon(
                 Icons.person,
                 size: 80,
-                color: Theme.of(context).colorScheme.inversePrimary,
+                color: theme.primaryColor,
               ),
 
               const SizedBox(height: 25),
 
               // app name
-              Text("Gabriel's Star", style: TextStyle(fontSize: 20)),
+              Text(
+                "Gabriel's Star", 
+                style: theme.textTheme.headlineMedium,
+              ),
 
               const SizedBox(height: 50),
 
               // name textfield
-              // email textfield
               MyTextfield(
                 hintText: "Name",
                 obscureText: false,
@@ -103,6 +105,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 hintText: "Email",
                 obscureText: false,
                 controller: emailController,
+                keyboardType: TextInputType.emailAddress,
               ),
 
               const SizedBox(height: 10),
@@ -116,7 +119,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
               const SizedBox(height: 10),
 
-              // confrim password textfield
+              // confirm password textfield
               MyTextfield(
                 hintText: "Confirm Password",
                 obscureText: true,
@@ -131,8 +134,8 @@ class _RegisterPageState extends State<RegisterPage> {
                 children: [
                   Text(
                     "Forgot Password?",
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.secondary,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: theme.colorScheme.secondary,
                     ),
                   ),
                 ],
@@ -151,15 +154,18 @@ class _RegisterPageState extends State<RegisterPage> {
                 children: [
                   Text(
                     "Already have an account?",
-                    style: TextStyle(
-                      color: Theme.of(context).colorScheme.inversePrimary,
+                    style: theme.textTheme.bodyLarge?.copyWith(
+                      color: theme.primaryColor.withOpacity(0.7),
                     ),
                   ),
                   GestureDetector(
                     onTap: widget.onTap,
-                    child: const Text(
+                    child: Text(
                       " Login here!",
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: theme.primaryColor,
+                      ),
                     ),
                   ),
                 ],

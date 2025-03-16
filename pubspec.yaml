@@ -1,5 +1,5 @@
 name: gabrielsstar
-description: "A new Flutter project."
+description: "A supportive space for families experiencing pregnancy and infant loss."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -36,6 +36,8 @@ dependencies:
   cupertino_icons: ^1.0.8
   firebase_core: ^3.12.1
   firebase_auth: ^5.5.1
+  url_launcher: ^6.2.5
+  
 
 dev_dependencies:
   flutter_test:
@@ -89,3 +91,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+  
