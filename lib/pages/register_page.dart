@@ -3,11 +3,12 @@ import 'package:gabrielsstar/components/my_button.dart';
 import 'package:gabrielsstar/components/my_textfield.dart';
 import 'package:gabrielsstar/helper/helper_functions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:gabrielsstar/pages/privacy_policy_page.dart'; // Add this import
 
 /// RegisterPage handles user account creation via email and password.
 ///
 /// This screen provides a form for new users to create an account by entering
-/// their name, email, and password, with validation to ensure password fields match
+/// their email, and password, with validation to ensure password fields match
 /// before submitting to Firebase Authentication.
 class RegisterPage extends StatefulWidget {
   /// Callback function triggered when the user wants to navigate to the login page.
@@ -21,10 +22,12 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   // Controllers for the input fields
-  final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPwController = TextEditingController();
+
+  // Add privacy policy consent state
+  bool privacyPolicyAccepted = false;
 
   /// Registers a new user with Firebase Authentication.
   ///
@@ -32,6 +35,12 @@ class _RegisterPageState extends State<RegisterPage> {
   /// account. Displays loading indicator during registration process and handles
   /// potential authentication errors with appropriate user messages.
   void registerUser() async {
+    // Check for privacy policy consent first
+    if (!privacyPolicyAccepted) {
+      _showPrivacyConsentDialog();
+      return;
+    }
+
     // Display loading indicator while registration is in progress
     showDialog(
       context: context,
@@ -45,7 +54,6 @@ class _RegisterPageState extends State<RegisterPage> {
 
       // Notify user of password mismatch
       displayMessageToUser("Entered Passwords don't match!", context);
-
     } else {
       // Attempt to create a new user account with Firebase Authentication
       try {
@@ -69,6 +77,76 @@ class _RegisterPageState extends State<RegisterPage> {
     }
   }
 
+  /// Shows the privacy policy consent dialog.
+  ///
+  /// Displays a dialog explaining how user data is handled and requires
+  /// explicit consent before proceeding with registration.
+  void _showPrivacyConsentDialog() {
+    final theme = Theme.of(context);
+
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder:
+          (context) => AlertDialog(
+            title: Text("Privacy Policy", style: theme.textTheme.titleLarge),
+            content: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Gabriel's Star uses Firebase Authentication to manage your account. By creating an account, you consent to our privacy policy regarding how your email address is processed and stored.",
+                    style: theme.textTheme.bodyMedium,
+                  ),
+                  const SizedBox(height: 16),
+                  TextButton(
+                    onPressed: () {
+                      // Navigate to privacy policy page while keeping dialog open
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const PrivacyPolicyScreen(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      "View Full Privacy Policy",
+                      style: TextStyle(color: theme.colorScheme.primary),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: Text(
+                  "Decline",
+                  style: TextStyle(color: theme.colorScheme.secondary),
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    privacyPolicyAccepted = true;
+                  });
+                  Navigator.of(context).pop();
+                  registerUser(); // Call again now that policy is accepted
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: theme.colorScheme.primary,
+                ),
+                child: const Text("Accept"),
+              ),
+            ],
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
+    );
+  }
+
   /// Shows a dialog that allows the user to request a password reset.
   ///
   /// Displays a dialog with an email input field and sends a password
@@ -76,62 +154,61 @@ class _RegisterPageState extends State<RegisterPage> {
   void _showForgotPasswordDialog() {
     final resetEmailController = TextEditingController();
     final theme = Theme.of(context);
-    
+
     showDialog(
       context: context,
-      builder: (context) => AlertDialog(
-        title: Text(
-          "Reset Password",
-          style: theme.textTheme.titleLarge,
-        ),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              "Enter your email address to receive a password reset link.",
-              style: theme.textTheme.bodyLarge,
+      builder:
+          (context) => AlertDialog(
+            title: Text("Reset Password", style: theme.textTheme.titleLarge),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  "Enter your email address to receive a password reset link.",
+                  style: theme.textTheme.bodyLarge,
+                ),
+                const SizedBox(height: 16),
+                MyTextfield(
+                  hintText: "Email",
+                  obscureText: false,
+                  controller: resetEmailController,
+                  keyboardType: TextInputType.emailAddress,
+                ),
+              ],
             ),
-            const SizedBox(height: 16),
-            MyTextfield(
-              hintText: "Email",
-              obscureText: false,
-              controller: resetEmailController,
-              keyboardType: TextInputType.emailAddress,
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(
-              "Cancel",
-              style: TextStyle(
-                color: theme.colorScheme.secondary,
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text(
+                  "Cancel",
+                  style: TextStyle(color: theme.colorScheme.secondary),
+                ),
               ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  if (resetEmailController.text.trim().isNotEmpty) {
+                    _resetPassword(resetEmailController.text.trim());
+                  } else {
+                    displayMessageToUser(
+                      "Please enter your email address.",
+                      context,
+                    );
+                  }
+                },
+                child: Text(
+                  "Send Reset Link",
+                  style: TextStyle(
+                    color: theme.colorScheme.primary,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
             ),
           ),
-          TextButton(
-            onPressed: () {
-              Navigator.pop(context);
-              if (resetEmailController.text.trim().isNotEmpty) {
-                _resetPassword(resetEmailController.text.trim());
-              } else {
-                displayMessageToUser("Please enter your email address.", context);
-              }
-            },
-            child: Text(
-              "Send Reset Link",
-              style: TextStyle(
-                color: theme.colorScheme.primary,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ],
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
-      ),
     );
   }
 
@@ -143,32 +220,31 @@ class _RegisterPageState extends State<RegisterPage> {
     // Display loading indicator
     showDialog(
       context: context,
-      builder: (context) => const Center(
-        child: CircularProgressIndicator()),
+      builder: (context) => const Center(child: CircularProgressIndicator()),
     );
 
     try {
       // Send password reset email
       await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
-      
+
       // Check if widget is still mounted before updating UI
       if (!mounted) return;
-      
-      // Remove loading indicator 
+
+      // Remove loading indicator
       Navigator.pop(context);
-      
+
       // Show success message
       displaySuccessMessage(
         "Password reset link sent to $email. Please check your inbox.",
-        context
+        context,
       );
     } on FirebaseAuthException catch (e) {
       // Check if widget is still mounted before updating UI
       if (!mounted) return;
-      
+
       // Remove loading indicator
       Navigator.pop(context);
-        
+
       // Display user-friendly error message
       String errorMessage;
       switch (e.code) {
@@ -188,7 +264,7 @@ class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    
+
     return Scaffold(
       backgroundColor: theme.scaffoldBackgroundColor,
       body: Center(
@@ -198,28 +274,12 @@ class _RegisterPageState extends State<RegisterPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // App logo representation
-              Icon(
-                Icons.person,
-                size: 80,
-                color: theme.primaryColor,
-              ),
+              Icon(Icons.person, size: 80, color: theme.primaryColor),
 
               const SizedBox(height: 25),
 
               // Application name display
-              Text(
-                "Gabriel's Star", 
-                style: theme.textTheme.headlineMedium,
-              ),
-
-              const SizedBox(height: 50),
-
-              // Name input field
-              MyTextfield(
-                hintText: "Name",
-                obscureText: false,
-                controller: nameController,
-              ),
+              Text("Gabriel's Star", style: theme.textTheme.headlineMedium),
 
               const SizedBox(height: 10),
 

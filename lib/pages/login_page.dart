@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gabrielsstar/components/my_button.dart';
 import 'package:gabrielsstar/components/my_textfield.dart';
 import 'package:gabrielsstar/helper/helper_functions.dart';
+import 'package:gabrielsstar/pages/privacy_policy_page.dart'; // Add this import
 
 /// LoginPage handles user authentication through email and password.
 ///
@@ -254,8 +255,43 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
 
-              const SizedBox(height: 25),
+              // Add privacy policy notice here
+              const SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "By logging in, you agree to our ",
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: theme.primaryColor.withOpacity(0.7),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const PrivacyPolicyScreen(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      "Privacy Policy",
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                        color: theme.primaryColor,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
 
+              const SizedBox(
+                height: 15,
+              ), // Reduced from 25 to accommodate new row
               // Login button to initiate authentication
               MyButton(text: "Login", onTap: login),
 

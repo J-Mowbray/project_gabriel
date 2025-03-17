@@ -1,13 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gabrielsstar/theme/theme_config.dart';
-import 'package:gabrielsstar/components/navigation_card.dart'; 
+import 'package:gabrielsstar/components/navigation_card.dart';
 import 'package:gabrielsstar/pages/resources_page.dart';
 import 'package:gabrielsstar/pages/support_networks_page.dart';
 import 'package:gabrielsstar/pages/types_of_loss_page.dart';
 import 'package:gabrielsstar/pages/personal_stories_page.dart';
 import 'package:gabrielsstar/pages/support_tips_page.dart';
 import 'package:gabrielsstar/pages/awareness_page.dart';
+import 'package:gabrielsstar/pages/privacy_policy_page.dart';
 
 /// home_page displays the main navigation screen for the Gabriel's Star app.
 ///
@@ -31,10 +32,7 @@ class HomePage extends StatelessWidget {
         title: Text("Gabriel's Star"),
         // AppBar styling is provided through AppBarTheme in the app's theme configuration
         actions: [
-          IconButton(
-            onPressed: logout,
-            icon: const Icon(Icons.logout),
-          )
+          IconButton(onPressed: logout, icon: const Icon(Icons.logout)),
         ],
       ),
       body: SafeArea(
@@ -54,7 +52,7 @@ class HomePage extends StatelessWidget {
                 style: AppTheme.bodyTextStyle(context),
               ),
               const SizedBox(height: 30),
-              
+
               // Grid navigation system for accessing different app sections
               Expanded(
                 child: GridView.count(
@@ -67,79 +65,109 @@ class HomePage extends StatelessWidget {
                       title: "Resources",
                       icon: Icons.lightbulb_outline,
                       color: AppTheme.resourcesCardColor,
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const ResourcesPage(),
-                        ),
-                      ),
+                      onTap:
+                          () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ResourcesPage(),
+                            ),
+                          ),
                     ),
-                    
+
                     // Support Networks navigation card - connects users to community and professional support
                     NavigationCard(
                       title: "Support Networks",
                       icon: Icons.people_outline,
                       color: AppTheme.supportNetworksCardColor,
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const SupportNetworksPage(),
-                        ),
-                      ),
+                      onTap:
+                          () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const SupportNetworksPage(),
+                            ),
+                          ),
                     ),
-                    
+
                     // Types of Loss navigation card - educates about different pregnancy and infant loss experiences
                     NavigationCard(
                       title: "Types of Loss",
                       icon: Icons.info_outline,
                       color: AppTheme.typesOfLossCardColor,
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const TypesOfLossPage(),
-                        ),
-                      ),
+                      onTap:
+                          () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const TypesOfLossPage(),
+                            ),
+                          ),
                     ),
-                    
+
                     // Personal Stories navigation card - provides access to shared experiences from other families
                     NavigationCard(
                       title: "Personal Stories",
                       icon: Icons.book_outlined,
                       color: AppTheme.personalStoriesCardColor,
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const PersonalStoriesPage(),
-                        ),
-                      ),
+                      onTap:
+                          () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const PersonalStoriesPage(),
+                            ),
+                          ),
                     ),
-                    
+
                     // Support Tips navigation card - offers guidance on supporting grieving families
                     NavigationCard(
                       title: "Support Tips",
                       icon: Icons.favorite_outline,
                       color: AppTheme.supportTipsCardColor,
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const SupportTipsPage(),
-                        ),
-                      ),
+                      onTap:
+                          () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const SupportTipsPage(),
+                            ),
+                          ),
                     ),
-                    
+
                     // Awareness navigation card - provides resources for advocacy and raising public awareness
                     NavigationCard(
                       title: "Raising Awareness",
                       icon: Icons.campaign_outlined,
                       color: AppTheme.awarenessCardColor,
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const AwarenessPage(),
-                        ),
-                      ),
+                      onTap:
+                          () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const AwarenessPage(),
+                            ),
+                          ),
                     ),
                   ],
+                ),
+              ),
+
+              // Privacy Policy link at the bottom
+              Padding(
+                padding: const EdgeInsets.only(top: 16.0),
+                child: Center(
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const PrivacyPolicyScreen(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      "Privacy Policy",
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.secondary,
+                        fontSize: 12.0,
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],
