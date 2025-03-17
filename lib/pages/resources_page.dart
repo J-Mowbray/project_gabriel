@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gabrielsstar/components/base_page_layout.dart';
-import 'package:gabrielsstar/components/content_card.dart'; 
+import 'package:gabrielsstar/components/content_card.dart';
 import 'package:gabrielsstar/theme/theme_config.dart';
 
 /// ResourcesPage provides helpful information for families experiencing pregnancy and infant loss.
@@ -15,7 +15,7 @@ class ResourcesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    
+
     return BasePageLayout(
       title: 'Resources',
       child: ListView(
@@ -31,182 +31,188 @@ class ResourcesPage extends StatelessWidget {
             style: theme.textTheme.bodyLarge,
           ),
           const SizedBox(height: 24),
-          
+
           // "What to Expect" section with resources for immediate aftermath of loss
-          _buildSection(
-            context,
-            'What to Expect',
-            [
-              ContentCard(
-                title: 'Immediate Next Steps',
-                content: 'Information about hospital procedures, memory making, and important decisions you may need to make in the coming days.',
-                icon: Icons.calendar_today,
-                iconColor: AppTheme.resourcesCardColor,
-                onTap: () => _showResourceDetail(
-                  context, 
-                  'Immediate Next Steps',
-                  _immediateNextStepsContent,
-                  icon: Icons.calendar_today,
-                ),
-              ),
-              ContentCard(
-                title: 'Physical Recovery',
-                content: 'Understanding your body\'s healing process and what physical symptoms you might experience.',
-                icon: Icons.favorite,
-                iconColor: AppTheme.supportTipsCardColor,
-                onTap: () => _showResourceDetail(
-                  context, 
-                  'Physical Recovery',
-                  _physicalRecoveryContent,
-                  icon: Icons.favorite,
-                ),
-              ),
-              ContentCard(
-                title: 'Emotional Journey',
-                content: 'The grief process and the range of emotions you might experience in the coming weeks and months.',
-                icon: Icons.sentiment_satisfied_alt,
-                iconColor: AppTheme.typesOfLossCardColor,
-                onTap: () => _showResourceDetail(
-                  context, 
-                  'Emotional Journey',
-                  _emotionalJourneyContent,
-                  icon: Icons.sentiment_satisfied_alt,
-                ),
-              ),
-            ],
-          ),
-          
+          _buildSection(context, 'What to Expect', [
+            ContentCard(
+              title: 'Immediate Next Steps',
+              content:
+                  'Information about hospital procedures, memory making, and important decisions you may need to make in the coming days.',
+              icon: Icons.calendar_today,
+              iconColor: AppTheme.resourcesCardColor,
+              onTap:
+                  () => _showResourceDetail(
+                    context,
+                    'Immediate Next Steps',
+                    _immediateNextStepsContent,
+                    icon: Icons.calendar_today,
+                  ),
+            ),
+            ContentCard(
+              title: 'Physical Recovery',
+              content:
+                  'Understanding your body\'s healing process and what physical symptoms you might experience.',
+              icon: Icons.favorite,
+              iconColor: AppTheme.supportTipsCardColor,
+              onTap:
+                  () => _showResourceDetail(
+                    context,
+                    'Physical Recovery',
+                    _physicalRecoveryContent,
+                    icon: Icons.favorite,
+                  ),
+            ),
+            ContentCard(
+              title: 'Emotional Journey',
+              content:
+                  'The grief process and the range of emotions you might experience in the coming weeks and months.',
+              icon: Icons.sentiment_satisfied_alt,
+              iconColor: AppTheme.typesOfLossCardColor,
+              onTap:
+                  () => _showResourceDetail(
+                    context,
+                    'Emotional Journey',
+                    _emotionalJourneyContent,
+                    icon: Icons.sentiment_satisfied_alt,
+                  ),
+            ),
+          ]),
+
           // "For Families" section with resources to support family members
-          _buildSection(
-            context,
-            'For Families',
-            [
-              ContentCard(
-                title: 'Talking to Children',
-                content: 'Age-appropriate ways to explain loss to siblings and supporting children through grief.',
-                icon: Icons.child_care,
-                iconColor: AppTheme.supportNetworksCardColor,
-                onTap: () => _showResourceDetail(
-                  context, 
-                  'Talking to Children',
-                  _talkingToChildrenContent,
-                  icon: Icons.child_care,
-                ),
-              ),
-              ContentCard(
-                title: 'Supporting Your Partner',
-                content: 'Understanding different grieving styles and how to support each other through loss.',
-                icon: Icons.people,
-                iconColor: AppTheme.personalStoriesCardColor,
-                onTap: () => _showResourceDetail(
-                  context, 
-                  'Supporting Your Partner',
-                  _supportingPartnerContent,
-                  icon: Icons.people,
-                ),
-              ),
-              ContentCard(
-                title: 'Involving Extended Family',
-                content: 'How to communicate your needs with family members and involving them in memory-making.',
-                icon: Icons.family_restroom,
-                iconColor: AppTheme.awarenessCardColor,
-                onTap: () => _showResourceDetail(
-                  context, 
-                  'Involving Extended Family',
-                  _extendedFamilyContent,
-                  icon: Icons.family_restroom,
-                ),
-              ),
-            ],
-          ),
-          
+          _buildSection(context, 'For Families', [
+            ContentCard(
+              title: 'Talking to Children',
+              content:
+                  'Age-appropriate ways to explain loss to siblings and supporting children through grief.',
+              icon: Icons.child_care,
+              iconColor: AppTheme.supportNetworksCardColor,
+              onTap:
+                  () => _showResourceDetail(
+                    context,
+                    'Talking to Children',
+                    _talkingToChildrenContent,
+                    icon: Icons.child_care,
+                  ),
+            ),
+            ContentCard(
+              title: 'Supporting Your Partner',
+              content:
+                  'Understanding different grieving styles and how to support each other through loss.',
+              icon: Icons.people,
+              iconColor: AppTheme.personalStoriesCardColor,
+              onTap:
+                  () => _showResourceDetail(
+                    context,
+                    'Supporting Your Partner',
+                    _supportingPartnerContent,
+                    icon: Icons.people,
+                  ),
+            ),
+            ContentCard(
+              title: 'Involving Extended Family',
+              content:
+                  'How to communicate your needs with family members and involving them in memory-making.',
+              icon: Icons.family_restroom,
+              iconColor: AppTheme.awarenessCardColor,
+              onTap:
+                  () => _showResourceDetail(
+                    context,
+                    'Involving Extended Family',
+                    _extendedFamilyContent,
+                    icon: Icons.family_restroom,
+                  ),
+            ),
+          ]),
+
           // "Memory Making" section with resources for honoring and remembering babies
-          _buildSection(
-            context,
-            'Memory Making',
-            [
-              ContentCard(
-                title: 'Creating Mementos',
-                content: 'Ideas for creating lasting memories of your baby.',
-                icon: Icons.photo_album,
-                iconColor: AppTheme.personalStoriesCardColor,
-                onTap: () => _showResourceDetail(
-                  context, 
-                  'Creating Mementos',
-                  _mementosContent,
-                  icon: Icons.photo_album,
-                ),
-              ),
-              ContentCard(
-                title: 'Memorial Ideas',
-                content: 'Ways to honor and remember your baby through memorials or tributes.',
-                icon: Icons.local_florist,
-                iconColor: AppTheme.supportTipsCardColor,
-                onTap: () => _showResourceDetail(
-                  context, 
-                  'Memorial Ideas',
-                  _memorialIdeasContent,
-                  icon: Icons.local_florist,
-                ),
-              ),
-              ContentCard(
-                title: 'Annual Remembrance',
-                content: 'Ideas for marking special dates and anniversaries.',
-                icon: Icons.event,
-                iconColor: AppTheme.typesOfLossCardColor,
-                onTap: () => _showResourceDetail(
-                  context, 
-                  'Annual Remembrance',
-                  _annualRemembranceContent,
-                  icon: Icons.event,
-                ),
-              ),
-            ],
-          ),
-          
+          _buildSection(context, 'Memory Making', [
+            ContentCard(
+              title: 'Creating Mementos',
+              content: 'Ideas for creating lasting memories of your baby.',
+              icon: Icons.photo_album,
+              iconColor: AppTheme.personalStoriesCardColor,
+              onTap:
+                  () => _showResourceDetail(
+                    context,
+                    'Creating Mementos',
+                    _mementosContent,
+                    icon: Icons.photo_album,
+                  ),
+            ),
+            ContentCard(
+              title: 'Memorial Ideas',
+              content:
+                  'Ways to honor and remember your baby through memorials or tributes.',
+              icon: Icons.local_florist,
+              iconColor: AppTheme.supportTipsCardColor,
+              onTap:
+                  () => _showResourceDetail(
+                    context,
+                    'Memorial Ideas',
+                    _memorialIdeasContent,
+                    icon: Icons.local_florist,
+                  ),
+            ),
+            ContentCard(
+              title: 'Annual Remembrance',
+              content: 'Ideas for marking special dates and anniversaries.',
+              icon: Icons.event,
+              iconColor: AppTheme.typesOfLossCardColor,
+              onTap:
+                  () => _showResourceDetail(
+                    context,
+                    'Annual Remembrance',
+                    _annualRemembranceContent,
+                    icon: Icons.event,
+                  ),
+            ),
+          ]),
+
           // "Practical Matters" section with resources for navigating logistical challenges
-          _buildSection(
-            context,
-            'Practical Matters',
-            [
-              ContentCard(
-                title: 'Financial Support',
-                content: 'Information about available benefits, funeral costs, and financial assistance.',
-                icon: Icons.attach_money,
-                iconColor: AppTheme.supportNetworksCardColor,
-                onTap: () => _showResourceDetail(
-                  context, 
-                  'Financial Support',
-                  _financialSupportContent,
-                  icon: Icons.attach_money,
-                ),
-              ),
-              ContentCard(
-                title: 'Returning to Work',
-                content: 'Guidance on taking time off, communicating with employers, and transitioning back to work.',
-                icon: Icons.work,
-                iconColor: AppTheme.resourcesCardColor,
-                onTap: () => _showResourceDetail(
-                  context, 
-                  'Returning to Work',
-                  _returningToWorkContent,
-                  icon: Icons.work,
-                ),
-              ),
-              ContentCard(
-                title: 'Legal Rights',
-                content: 'Understanding your entitlements regarding leave, certificates, and registration.',
-                icon: Icons.gavel,
-                iconColor: AppTheme.awarenessCardColor,
-                onTap: () => _showResourceDetail(
-                  context, 
-                  'Legal Rights',
-                  _legalRightsContent,
-                  icon: Icons.gavel,
-                ),
-              ),
-            ],
-          ),
+          _buildSection(context, 'Practical Matters', [
+            ContentCard(
+              title: 'Financial Support',
+              content:
+                  'Information about available benefits, funeral costs, and financial assistance.',
+              icon: Icons.attach_money,
+              iconColor: AppTheme.supportNetworksCardColor,
+              onTap:
+                  () => _showResourceDetail(
+                    context,
+                    'Financial Support',
+                    _financialSupportContent,
+                    icon: Icons.attach_money,
+                  ),
+            ),
+            ContentCard(
+              title: 'Returning to Work',
+              content:
+                  'Guidance on taking time off, communicating with employers, and transitioning back to work.',
+              icon: Icons.work,
+              iconColor: AppTheme.resourcesCardColor,
+              onTap:
+                  () => _showResourceDetail(
+                    context,
+                    'Returning to Work',
+                    _returningToWorkContent,
+                    icon: Icons.work,
+                  ),
+            ),
+            ContentCard(
+              title: 'Legal Rights',
+              content:
+                  'Understanding your entitlements regarding leave, certificates, and registration.',
+              icon: Icons.gavel,
+              iconColor: AppTheme.awarenessCardColor,
+              onTap:
+                  () => _showResourceDetail(
+                    context,
+                    'Legal Rights',
+                    _legalRightsContent,
+                    icon: Icons.gavel,
+                  ),
+            ),
+          ]),
         ],
       ),
     );
@@ -214,7 +220,7 @@ class ResourcesPage extends StatelessWidget {
 
   /// Creates a titled section containing a list of resource cards.
   ///
-  /// This helper method builds a consistent section layout with a title and 
+  /// This helper method builds a consistent section layout with a title and
   /// a collection of content cards, separated by a divider from the next section.
   ///
   /// Parameters:
@@ -227,10 +233,7 @@ class ResourcesPage extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 16.0),
-          child: Text(
-            title,
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
+          child: Text(title, style: Theme.of(context).textTheme.titleLarge),
         ),
         ...cards,
         const SizedBox(height: 8),
@@ -251,13 +254,13 @@ class ResourcesPage extends StatelessWidget {
   ///   content - The detailed content text to display
   ///   icon - Optional icon to display in the header (default is info_outline)
   void _showResourceDetail(
-    BuildContext context, 
-    String title, 
-    String content, 
-    {IconData icon = Icons.info_outline}
-  ) {
+    BuildContext context,
+    String title,
+    String content, {
+    IconData icon = Icons.info_outline,
+  }) {
     final theme = Theme.of(context);
-    
+
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -278,7 +281,9 @@ class ResourcesPage extends StatelessWidget {
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
                     color: theme.primaryColor,
-                    borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+                    borderRadius: const BorderRadius.vertical(
+                      top: Radius.circular(20),
+                    ),
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -296,11 +301,7 @@ class ResourcesPage extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(
-                            icon,
-                            color: Colors.white,
-                            size: 28,
-                          ),
+                          Icon(icon, color: Colors.white, size: 28),
                           const SizedBox(width: 12),
                           Flexible(
                             child: Text(
@@ -321,12 +322,7 @@ class ResourcesPage extends StatelessWidget {
                   child: ListView(
                     controller: controller,
                     padding: const EdgeInsets.all(16),
-                    children: [
-                      Text(
-                        content,
-                        style: theme.textTheme.bodyLarge,
-                      ),
-                    ],
+                    children: [Text(content, style: theme.textTheme.bodyLarge)],
                   ),
                 ),
               ],
@@ -703,34 +699,41 @@ If you're struggling financially, reach out to citizens advice or specialist fin
 Returning to work after pregnancy or baby loss can be challenging emotionally and practically. Here's guidance to help with this transition:
 
 Before returning:
-• Know your rights regarding leave entitlement
-• Consider when you feel ready to return - there's no "right" timeframe
-• Discuss with your GP if you need more time (sick leave may be appropriate)
-• Consider a phased return or flexible working if available
-• Decide what you want colleagues to know about your loss
+- Know your rights regarding leave entitlement
+- Consider when you feel ready to return - there's no "right" timeframe
+- Discuss with your GP if you need more time (sick leave may be appropriate)
+- Consider a phased return or flexible working arrangements if available
+- Decide what you want colleagues to know about your loss
 
 Preparing colleagues:
-• If comfortable, communicate with your manager about what happened
-• Decide if you want to tell colleagues yourself or have someone else inform them
-• Consider sending an email before your return explaining how you'd like people to approach the subject
-• Prepare responses for common questions or comments
-• Identify a supportive colleague who understands your situation
+- If comfortable, communicate with your manager about what happened
+- Decide if you want to tell colleagues yourself or have someone else inform them
+- Consider sending an email before your return explaining how you'd like people to approach the subject
+- Prepare responses for common questions or comments
+- Identify a supportive colleague who understands your situation
 
 Self-care at work:
-• Identify a private space you can use if you need time alone
-• Plan shorter days initially if possible
-• Schedule regular breaks
-• Consider what might trigger grief at work and plan how to handle these situations
-• Bring comforting items to your workspace
-• Set boundaries around discussing your loss
+- Identify a private space you can use if you need time alone
+- Plan shorter days initially if possible
+- Schedule regular breaks
+- Consider what might trigger grief at work and plan how to handle these situations
+- Bring comforting items to your workspace
+- Set boundaries around discussing your loss
 
-For managers supporting employees:
-• Follow the employee's lead on how much they want to discuss
-• Offer practical support like a phased return or temporary adjustment of duties
-• Check in privately rather than in group settings
-• Remember significant dates that might be difficult
-• Understand that grief can affect concentration and energy
-• Provide information about employee assistance programs if available
+For employers supporting staff:
+- Follow the employee's lead on how much they want to discuss
+- Offer practical support like a phased return or temporary adjustment of duties
+- Check in privately rather than in group settings
+- Remember significant dates that might be difficult
+- Understand that grief can affect concentration and energy
+- Provide information about employee assistance programmes if available
+
+Legal entitlements (as of March 2025):
+- If your baby was stillborn after 24 weeks, you are entitled to full maternity/paternity leave and pay (if eligible)
+- For losses before 24 weeks, you are entitled to sick leave, and many employers offer compassionate leave
+- You have the right to request flexible working arrangements
+- The Equality Act 2010 provides protection against discrimination
+- Some employers have specific bereavement policies with additional provisions
 
 Remember that returning to work can be both helpful (providing routine and distraction) and challenging. Be patient with yourself, and don't hesitate to communicate your needs or seek additional support if the transition proves difficult.
 ''';
@@ -778,4 +781,5 @@ Additional considerations:
 • Some losses may qualify for special circumstances in future pregnancies
 
 Remember that laws and entitlements may change, and some employers offer more generous provisions than the legal minimum. Seek current advice from citizens advice, ACAS, or specialist organizations like Sands if you have specific questions about your rights.
-''';}
+''';
+}
