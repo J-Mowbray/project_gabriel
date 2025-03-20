@@ -163,7 +163,7 @@ class SupportNetworksPage extends StatelessWidget {
                   'A safe, online space where anyone affected by the death of a baby can connect with others.',
               icon: Icons.forum,
               iconColor: AppTheme.supportNetworksCardColor,
-              onTap: () => _launchURL('https://www.sands.community'),
+              onTap: () => _launchURL('https://sands.community/login'),
             ),
           ]),
 
