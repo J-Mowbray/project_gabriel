@@ -6,18 +6,16 @@ import 'package:gabrielsstar/firebase_options.dart';
 
 /// Entry point for the Gabriel's Star application.
 ///
-/// Initializes Firebase services before launching the app and
+/// Initialises Firebase services before launching the app and
 /// configures theme settings and the initial authentication screen.
 void main() async {
-  // Ensure Flutter engine is initialized before calling native code
+  // Ensure Flutter engine is initialised before calling native code
   WidgetsFlutterBinding.ensureInitialized();
-  
-  // Initialize Firebase with platform-specific configuration
+
+  // Initialise Firebase with platform-specific configuration
   // This must happen before any Firebase services are used
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
   // Launch the application with the root widget
   runApp(const MyApp());
 }

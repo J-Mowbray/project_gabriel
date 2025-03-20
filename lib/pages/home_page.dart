@@ -10,10 +10,10 @@ import 'package:gabrielsstar/pages/support_tips_page.dart';
 import 'package:gabrielsstar/pages/awareness_page.dart';
 import 'package:gabrielsstar/pages/privacy_policy_page.dart';
 
-/// home_page displays the main navigation screen for the Gabriel's Star app.
+/// HomePage displays the main navigation screen for the Gabriel's Star app.
 ///
 /// This screen provides access to all major sections of the application through
-/// a grid of navigation cards, each leading to specialized content areas for
+/// a grid of navigation cards, each leading to specialised content areas for
 /// supporting families experiencing pregnancy and infant loss.
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

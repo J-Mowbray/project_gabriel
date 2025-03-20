@@ -6,7 +6,7 @@ import 'package:gabrielsstar/theme/theme_config.dart';
 /// SupportTipsPage provides guidance on supporting oneself and others through
 /// pregnancy and infant loss.
 ///
-/// This page contains a collection of practical advice organized into different
+/// This page contains a collection of practical advice organised into different
 /// categories addressing self-care, supporting partners, family guidance, and more.
 /// It also includes helpful phrases to use and phrases to avoid when speaking with
 /// those experiencing loss.
@@ -16,7 +16,7 @@ class SupportTipsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    
+
     return BasePageLayout(
       title: 'Support Tips',
       child: ListView(
@@ -32,109 +32,115 @@ class SupportTipsPage extends StatelessWidget {
             style: theme.textTheme.bodyLarge,
           ),
           const SizedBox(height: 24),
-          
+
           // Self-care tips for those experiencing loss
           ContentCard(
             title: 'Self-Care',
-            content: "Taking care of yourself after loss is not selfish—it's necessary. Discover ways to support yourself during this difficult time.",
+            content:
+                "Taking care of yourself after loss is not selfish—it's necessary. Discover ways to support yourself during this difficult time.",
             icon: Icons.favorite,
             iconColor: AppTheme.supportTipsCardColor,
-            onTap: () => _showSupportDetail(
-              context, 
-              'Self-Care',
-              _selfCareContent,
-              AppTheme.supportTipsCardColor,
-            ),
+            onTap:
+                () => _showSupportDetail(
+                  context,
+                  'Self-Care',
+                  _selfCareContent,
+                  AppTheme.supportTipsCardColor,
+                ),
           ),
-          
+
           // Guidance for partners supporting each other through loss
           ContentCard(
             title: 'For Partners',
-            content: "Partners often experience pregnancy and infant loss differently, but both parents' grief is valid and significant.",
+            content:
+                "Partners often experience pregnancy and infant loss differently, but both parents' grief is valid and significant.",
             icon: Icons.people,
             iconColor: AppTheme.resourcesCardColor,
-            onTap: () => _showSupportDetail(
-              context, 
-              'For Partners',
-              _partnerContent,
-              AppTheme.resourcesCardColor,
-            ),
+            onTap:
+                () => _showSupportDetail(
+                  context,
+                  'For Partners',
+                  _partnerContent,
+                  AppTheme.resourcesCardColor,
+                ),
           ),
-          
+
           // Advice for family members and friends who want to help
           ContentCard(
             title: 'For Family & Friends',
-            content: 'Supporting someone through pregnancy or infant loss can be challenging. Learn how friends and family can help.',
+            content:
+                'Supporting someone through pregnancy or infant loss can be challenging. Learn how friends and family can help.',
             icon: Icons.family_restroom,
             iconColor: AppTheme.supportNetworksCardColor,
-            onTap: () => _showSupportDetail(
-              context, 
-              'For Family & Friends',
-              _familyFriendsContent,
-              AppTheme.supportNetworksCardColor,
-            ),
+            onTap:
+                () => _showSupportDetail(
+                  context,
+                  'For Family & Friends',
+                  _familyFriendsContent,
+                  AppTheme.supportNetworksCardColor,
+                ),
           ),
-          
+
           // Guidance for supporting children affected by baby loss
           ContentCard(
             title: 'Supporting Children',
-            content: 'When a baby dies, other children in the family are also affected by the loss. Learn ways to support them.',
+            content:
+                'When a baby dies, other children in the family are also affected by the loss. Learn ways to support them.',
             icon: Icons.child_care,
             iconColor: AppTheme.typesOfLossCardColor,
-            onTap: () => _showSupportDetail(
-              context, 
-              'Supporting Children',
-              _childrenContent,
-              AppTheme.typesOfLossCardColor,
-            ),
+            onTap:
+                () => _showSupportDetail(
+                  context,
+                  'Supporting Children',
+                  _childrenContent,
+                  AppTheme.typesOfLossCardColor,
+                ),
           ),
-          
+
           // Information about returning to work after loss
           ContentCard(
             title: 'Returning to Work',
-            content: 'Returning to work after pregnancy or baby loss can be challenging. Find guidance to help with this transition.',
+            content:
+                'Returning to work after pregnancy or baby loss can be challenging. Find guidance to help with this transition.',
             icon: Icons.work,
             iconColor: AppTheme.personalStoriesCardColor,
-            onTap: () => _showSupportDetail(
-              context, 
-              'Returning to Work',
-              _workContent,
-              AppTheme.personalStoriesCardColor,
-            ),
+            onTap:
+                () => _showSupportDetail(
+                  context,
+                  'Returning to Work',
+                  _workContent,
+                  AppTheme.personalStoriesCardColor,
+                ),
           ),
-          
+
           // Advice for navigating significant dates and anniversaries
           ContentCard(
             title: 'Anniversary Dates',
-            content: 'Anniversary dates and milestones can intensify grief. Learn ways to navigate these difficult times.',
+            content:
+                'Anniversary dates and milestones can intensify grief. Learn ways to navigate these difficult times.',
             icon: Icons.calendar_today,
             iconColor: AppTheme.awarenessCardColor,
-            onTap: () => _showSupportDetail(
-              context, 
-              'Anniversary Dates',
-              _anniversaryContent,
-              AppTheme.awarenessCardColor,
-            ),
+            onTap:
+                () => _showSupportDetail(
+                  context,
+                  'Anniversary Dates',
+                  _anniversaryContent,
+                  AppTheme.awarenessCardColor,
+                ),
           ),
-          
+
           // Section showing supportive phrases to use with bereaved families
           const SizedBox(height: 24),
-          Text(
-            'Helpful Things to Say',
-            style: theme.textTheme.titleLarge,
-          ),
+          Text('Helpful Things to Say', style: theme.textTheme.titleLarge),
           const SizedBox(height: 16),
           _buildQuoteList(context, _helpfulPhrases, Colors.green.shade100),
-          
+
           // Section showing phrases to avoid when speaking with bereaved families
           const SizedBox(height: 24),
-          Text(
-            'Things to Avoid Saying',
-            style: theme.textTheme.titleLarge,
-          ),
+          Text('Things to Avoid Saying', style: theme.textTheme.titleLarge),
           const SizedBox(height: 16),
           _buildQuoteList(context, _unhelpfulPhrases, Colors.red.shade100),
-          
+
           const SizedBox(height: 32),
         ],
       ),
@@ -151,10 +157,15 @@ class SupportTipsPage extends StatelessWidget {
   ///   context - The build context
   ///   title - The title of the support topic
   ///   content - The detailed support content text to display
-  ///   iconColor - The color to apply to the icon in the header
-  void _showSupportDetail(BuildContext context, String title, String content, Color iconColor) {
+  ///   iconColor - The colour to apply to the icon in the header
+  void _showSupportDetail(
+    BuildContext context,
+    String title,
+    String content,
+    Color iconColor,
+  ) {
     final theme = Theme.of(context);
-    
+
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -175,7 +186,9 @@ class SupportTipsPage extends StatelessWidget {
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
                     color: theme.primaryColor,
-                    borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+                    borderRadius: const BorderRadius.vertical(
+                      top: Radius.circular(20),
+                    ),
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -218,12 +231,7 @@ class SupportTipsPage extends StatelessWidget {
                   child: ListView(
                     controller: controller,
                     padding: const EdgeInsets.all(16),
-                    children: [
-                      Text(
-                        content,
-                        style: theme.textTheme.bodyLarge,
-                      ),
-                    ],
+                    children: [Text(content, style: theme.textTheme.bodyLarge)],
                   ),
                 ),
               ],
@@ -265,65 +273,74 @@ class SupportTipsPage extends StatelessWidget {
 
   /// Creates a styled list of phrases with appropriate icons.
   ///
-  /// Builds a list of containers with colored backgrounds and appropriate icons
+  /// Builds a list of containers with coloured backgrounds and appropriate icons
   /// to display either helpful or unhelpful phrases for supporting those
   /// experiencing pregnancy or infant loss.
   ///
   /// Parameters:
   ///   context - The build context
   ///   quotes - A list of phrase strings to display
-  ///   backgroundColor - The background color for the containers
+  ///   backgroundColor - The background colour for the containers
   ///
   /// Returns:
   ///   Widget - A column containing the styled phrase containers
-  Widget _buildQuoteList(BuildContext context, List<String> quotes, Color backgroundColor) {
-    // Automatically determine text color based on background brightness
-    final textColor = backgroundColor.computeLuminance() > 0.5 
-        ? Colors.black87  // Dark text on light backgrounds
-        : Colors.white;   // Light text on dark backgrounds
-    
+  Widget _buildQuoteList(
+    BuildContext context,
+    List<String> quotes,
+    Color backgroundColor,
+  ) {
+    // Automatically determine text colour based on background brightness
+    final textColor =
+        backgroundColor.computeLuminance() > 0.5
+            ? Colors
+                .black87 // Dark text on light backgrounds
+            : Colors.white; // Light text on dark backgrounds
+
     return Column(
-      children: quotes.map((quote) {
-        return Container(
-          margin: const EdgeInsets.only(bottom: 12),
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: backgroundColor,
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Icon(
-                backgroundColor == Colors.green.shade100
-                    ? Icons.check_circle
-                    : Icons.remove_circle,
-                color: backgroundColor == Colors.green.shade100
-                    ? Colors.green
-                    : Colors.red,
-                size: 20,
+      children:
+          quotes.map((quote) {
+            return Container(
+              margin: const EdgeInsets.only(bottom: 12),
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: backgroundColor,
+                borderRadius: BorderRadius.circular(12),
               ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: Text(
-                  quote,
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: textColor, // Use computed text color based on background
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Icon(
+                    backgroundColor == Colors.green.shade100
+                        ? Icons.check_circle
+                        : Icons.remove_circle,
+                    color:
+                        backgroundColor == Colors.green.shade100
+                            ? Colors.green
+                            : Colors.red,
+                    size: 20,
                   ),
-                ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Text(
+                      quote,
+                      style: TextStyle(
+                        fontSize: 16,
+                        color:
+                            textColor, // Use computed text colour based on background
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
-        );
-      }).toList(),
+            );
+          }).toList(),
     );
   }
 
   /// Content providing self-care guidance for individuals experiencing loss.
   ///
   /// Includes physical and emotional self-care strategies, advice on finding
-  /// support, and guidance on honoring the baby's memory.
+  /// support, and guidance on honouring the baby's memory.
   static const String _selfCareContent = '''
 Taking care of yourself after loss is not selfish—it's necessary. Here are some ways to support yourself during this difficult time:
 
@@ -335,7 +352,7 @@ Physical Self-Care:
 • Don't push yourself to "get back to normal" too quickly
 
 Emotional Self-Care:
-• Acknowledge your feelings without judgment
+• Acknowledge your feelings without judgement
 • Give yourself permission to grieve in your own way
 • Know that grief comes in waves and can be unpredictable
 • Consider journaling to express and process your emotions
@@ -345,7 +362,7 @@ Emotional Self-Care:
 Finding Support:
 • Connect with others who have experienced similar losses
 • Consider joining a support group (in-person or online)
-• Talk to a professional counselor or therapist who specializes in grief and loss
+• Talk to a professional counsellor or therapist who specialises in grief and loss
 • Use helplines when you need immediate support
 • Share your needs clearly with trusted friends and family
 
@@ -355,7 +372,7 @@ Taking Breaks from Grief:
 • Simple pleasures can coexist with grief
 • Moments of joy do not mean you've forgotten your baby
 
-Honoring Your Baby:
+Honouring Your Baby:
 • Say your baby's name and acknowledge their existence
 • Create rituals or memorials that feel meaningful to you
 • Make decisions about remembrance based on what feels right for you, not others' expectations
@@ -371,7 +388,7 @@ Remember that healing is not linear, and there is no timeline for grief. Be gent
 Partners often experience pregnancy and infant loss differently, but both parents' grief is valid and significant. Here are ways to support each other:
 
 Understanding Different Grief Styles:
-• Recognize that partners may experience and express grief differently
+• Recognise that partners may experience and express grief differently
 • Some may be more emotional, while others focus on practical matters
 • Different coping strategies don't indicate differences in love or care
 • There is no "right way" to grieve
@@ -394,15 +411,15 @@ Intimacy After Loss:
 • Physical and emotional intimacy may be affected by grief
 • Be patient with changes in your intimate relationship
 • Communicate openly about readiness for physical intimacy
-• Consider counseling if intimacy issues persist or cause distress
+• Consider counselling if intimacy issues persist or cause distress
 
 When Partners Disagree:
-• About memorialization or remembrance
+• About memorialisation or remembrance
 • About timing for trying again
 • About how much to talk about the loss
 • About seeking outside support
 
-These differences are normal and can be navigated with compassion and communication. If you're struggling to understand each other, consider seeing a counselor who specializes in grief and relationships.
+These differences are normal and can be navigated with compassion and communication. If you're struggling to understand each other, consider seeing a counsellor who specialises in grief and relationships.
 
 Remember that many relationships are strengthened through shared grief, even though the process can be challenging.
 ''';
@@ -416,7 +433,7 @@ Supporting someone through pregnancy or infant loss can be challenging. Here's h
 
 Be Present and Listen:
 • Simply being there is powerful
-• Listen without trying to fix or minimize their pain
+• Listen without trying to fix or minimise their pain
 • Follow their lead in conversations
 • Remember that silence can be comfortable and supportive
 • Check in regularly, even months after the loss
@@ -475,13 +492,13 @@ What Children May Experience:
 • Confusion about what happened
 • Worry about parents and family stability
 • Guilt (especially if they had mixed feelings about a new sibling)
-• Changes in behavior, sleep, or eating patterns
+• Changes in behaviour, sleep, or eating patterns
 • Grief expressed through play or art rather than words
 • Revisiting questions as they grow and develop
 
 Supporting Different Age Groups:
 • Toddlers and preschoolers: Maintain routines, offer simple explanations, provide extra comfort
-• School-age children: Answer questions, involve them in memorialization if they wish, alert teachers
+• School-age children: Answer questions, involve them in memorialisation if they wish, alert teachers
 • Teenagers: Give space when needed, acknowledge their grief, involve them in family discussions
 
 Involving Children in Remembrance:
@@ -491,15 +508,15 @@ Involving Children in Remembrance:
 • Help them find ways to express their feelings
 
 Warning Signs That Extra Support May Be Needed:
-• Prolonged changes in behavior or personality
+• Prolonged changes in behaviour or personality
 • Academic difficulties
 • Withdrawal from friends or activities
 • Physical symptoms with no medical cause
 • Talk of wanting to join the baby who died
 
-Resources for children experiencing grief include school counselors, child psychologists who specialize in grief, and books about sibling loss appropriate for their age.
+Resources for children experiencing grief include school counsellors, child psychologists who specialise in grief, and books about sibling loss appropriate for their age.
 
-Remember that children are resilient, especially when supported with honest communication and consistent care. They take cues from adults about how to respond to loss, so modeling healthy grief can help them develop their own coping skills.
+Remember that children are resilient, especially when supported with honest communication and consistent care. They take cues from adults about how to respond to loss, so modelling healthy grief can help them develop their own coping skills.
 ''';
 
   /// Content providing guidance on returning to work after loss.
@@ -592,17 +609,17 @@ Taking Care of Yourself:
 • Have support people on standby
 • Remember that anticipation can sometimes be harder than the day itself
 • Be flexible with your plans - it's okay to change your mind
-• Honor your feelings whatever they may be
+• Honour your feelings whatever they may be
 
 For Family and Friends:
 • Mark these dates in your calendar
 • Reach out to acknowledge the day
 • Say the baby's name
 • Offer specific support
-• Understand if plans change or are canceled
+• Understand if plans change or are cancelled
 • Follow the parents' lead about how to mark the occasion
 
-Anniversary reactions can occur for many years. They often become less intense with time, but may always hold significance. Creating meaningful ways to honor your baby on these dates can transform difficult days into opportunities for connection and remembrance.
+Anniversary reactions can occur for many years. They often become less intense with time, but may always hold significance. Creating meaningful ways to honour your baby on these dates can transform difficult days into opportunities for connection and remembrance.
 ''';
 
   /// Collection of supportive phrases to use when speaking with bereaved families.
@@ -624,7 +641,7 @@ Anniversary reactions can occur for many years. They often become less intense w
 
   /// Collection of phrases to avoid when speaking with bereaved families.
   ///
-  /// These phrases can minimize grief, impose timelines, or attempt to find
+  /// These phrases can minimise grief, impose timelines, or attempt to find
   /// silver linings that may be hurtful to those experiencing loss.
   static const List<String> _unhelpfulPhrases = [
     "At least you know you can get pregnant.",

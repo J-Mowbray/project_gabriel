@@ -35,7 +35,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
 
               _buildSection(
                 'Data We Access',
-                'When you log in to Gabriel\'s Star:\n• We receive a unique identifier from Firebase that allows us to recognize your account\n• We do not receive or store your email address or authentication details within our own systems',
+                'When you log in to Gabriel\'s Star:\n• We receive a unique identifier from Firebase that allows us to recognise your account\n• We do not receive or store your email address or authentication details within our own systems',
                 theme,
               ),
 

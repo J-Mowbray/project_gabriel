@@ -81,9 +81,9 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-  /// Shows a dialog that allows the user to request a password reset.
+  /// Shows a dialogue that allows the user to request a password reset.
   ///
-  /// Displays a dialog with an email input field and sends a password
+  /// Displays a dialogue with an email input field and sends a password
   /// reset email when the user submits their email address.
   void _showForgotPasswordDialog() {
     final resetEmailController = TextEditingController();

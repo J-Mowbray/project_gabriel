@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 
-/// MyButton provides a standardized button component used throughout the app.
+/// MyButton provides a standardised button component used throughout the app.
 ///
 /// This reusable component creates a styled button that can be either full-width
-/// or content-sized. It leverages the app's theme configuration for consistent 
+/// or content-sized. It leverages the app's theme configuration for consistent
 /// styling and offers a simplified API for common button use cases.
 class MyButton extends StatelessWidget {
   /// The text to display on the button
   final String text;
-  
+
   /// Callback function to execute when the button is tapped
   final void Function()? onTap;
-  
+
   /// Whether the button should expand to fill the available width
   /// Defaults to true (full-width)
   final bool fullWidth;
-  
-  /// Creates a standardized button with consistent styling.
+
+  /// Creates a standardised button with consistent styling.
   ///
   /// Parameters:
   ///   text - Label to display on the button
@@ -38,10 +38,8 @@ class MyButton extends StatelessWidget {
       // Button styling is inherited from the elevatedButtonTheme in AppTheme
       child: Text(text),
     );
-    
+
     // Conditionally wrap the button in a SizedBox for full-width display
-    return fullWidth
-        ? SizedBox(width: double.infinity, child: button)
-        : button;
+    return fullWidth ? SizedBox(width: double.infinity, child: button) : button;
   }
 }

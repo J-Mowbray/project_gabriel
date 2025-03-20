@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-/// NavigationCard provides colorful, icon-based navigation buttons for the app.
+/// NavigationCard provides colourful, icon-based navigation buttons for the app.
 ///
-/// This component creates the distinctive colored cards used on the home screen
-/// for navigating to different sections of the app. Each card features a 
-/// consistent layout with an icon and label on a colored background.
+/// This component creates the distinctive coloured cards used on the home screen
+/// for navigating to different sections of the app. Each card features a
+/// consistent layout with an icon and label on a coloured background.
 class NavigationCard extends StatelessWidget {
   /// Title text displayed below the icon
   final String title;
-  
+
   /// Icon displayed in the center of the card
   final IconData icon;
-  
+
   /// Background color for the card (typically from AppTheme category colors)
   final Color color;
-  
+
   /// Callback function executed when the card is tapped
   final VoidCallback onTap;
 
@@ -42,9 +42,7 @@ class NavigationCard extends StatelessWidget {
         // Slightly elevated appearance for depth
         elevation: 4,
         // Rounded corners for the card
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         child: Container(
           // Apply the category-specific background color
           decoration: BoxDecoration(
@@ -52,15 +50,11 @@ class NavigationCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(12),
           ),
           child: Column(
-            // Center contents vertically
+            // Centre contents vertically
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // Large white icon
-              Icon(
-                icon,
-                size: 40,
-                color: Colors.white,
-              ),
+              Icon(icon, size: 40, color: Colors.white),
               const SizedBox(height: 8),
               // White text label
               Text(

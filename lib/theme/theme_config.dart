@@ -1,86 +1,91 @@
 // theme_config.dart
 import 'package:flutter/material.dart';
 
-/// AppTheme centralizes all theming for the Gabriel's Star app
-/// 
+/// AppTheme centralises all theming for the Gabriel's Star app
+///
 /// The design follows these principles:
-/// 1. All colors defined in one place
+/// 1. All colours defined in one place
 /// 2. Consistent styles across components
 /// 3. Easy toggling between light and dark mode
 /// 4. Simple API for accessing theme components
 class AppTheme {
-  // ========== CORE COLOR PALETTE ==========
-  /// Primary brand color - main blue used throughout the app
+  // ========== CORE COLOUR PALETTE ==========
+  /// Primary brand colour - main blue used throughout the app
   static const Color primaryColor = Color(0xFF2E7EED); // Brand blue
-  
-  /// Secondary brand color - red accent for complementary UI elements
-  static const Color secondaryColor = Color.fromARGB(255, 255, 0, 0); // Teal accent
-  
-  // Category-specific colors for navigation cards and section headers
-  /// Blue color used for the Resources section UI elements
+
+  /// Secondary brand colour - red accent for complementary UI elements
+  static const Color secondaryColor = Color.fromARGB(
+    255,
+    255,
+    0,
+    0,
+  ); // Red accent
+
+  // Category-specific colours for navigation cards and section headers
+  /// Blue colour used for the Resources section UI elements
   static const Color resourcesCardColor = Color(0xFF0470C9);
-  
-  /// Green color used for the Support Networks section UI elements
+
+  /// Green colour used for the Support Networks section UI elements
   static const Color supportNetworksCardColor = Color(0xFF66BB6A);
-  
-  /// Purple color used for the Types of Loss section UI elements
+
+  /// Purple colour used for the Types of Loss section UI elements
   static const Color typesOfLossCardColor = Color(0xFFBA68C8);
-  
-  /// Orange color used for the Personal Stories section UI elements
+
+  /// Orange colour used for the Personal Stories section UI elements
   static const Color personalStoriesCardColor = Color(0xFFFFB74D);
-  
-  /// Red color used for the Support Tips section UI elements
+
+  /// Red colour used for the Support Tips section UI elements
   static const Color supportTipsCardColor = Color(0xFFEF5350);
-  
-  /// Teal color used for the Awareness section UI elements
+
+  /// Teal colour used for the Awareness section UI elements
   static const Color awarenessCardColor = Color(0xFF26A69A);
 
-  // Light theme colors for the app's light mode
-  /// Light blue background color for light theme screens
+  // Light theme colours for the app's light mode
+  /// Light blue background colour for light theme screens
   static const Color lightBackground = Color.fromARGB(255, 157, 234, 255);
-  
-  /// Off-white surface color for light theme containers
+
+  /// Off-white surface colour for light theme containers
   static const Color lightSurface = Color(0xFFF8F8F8);
-  
-  /// White card color for light theme cards and elevated surfaces
+
+  /// White card colour for light theme cards and elevated surfaces
   static const Color lightCard = Color(0xFFFFFFFF);
-  
-  /// Dark grey primary text color for light theme
+
+  /// Dark grey primary text colour for light theme
   static const Color lightTextPrimary = Color(0xFF333333);
-  
-  /// Medium grey secondary text color for light theme
+
+  /// Medium grey secondary text colour for light theme
   static const Color lightTextSecondary = Color(0xFF757575);
-  
-  /// Light grey divider color for light theme separators
+
+  /// Light grey divider colour for light theme separators
   static const Color lightDivider = Color(0xFFEEEEEE);
-  
-  // Dark theme colors for the app's dark mode
-  /// Deep dark background color for dark theme screens
+
+  // Dark theme colours for the app's dark mode
+  /// Deep dark background colour for dark theme screens
   static const Color darkBackground = Color(0xFF121212);
-  
-  /// Slightly lighter surface color for dark theme containers
+
+  /// Slightly lighter surface colour for dark theme containers
   static const Color darkSurface = Color(0xFF1E1E1E);
-  
-  /// Dark grey card color for dark theme cards and elevated surfaces
+
+  /// Dark grey card colour for dark theme cards and elevated surfaces
   static const Color darkCard = Color(0xFF2C2C2C);
-  
-  /// White primary text color for dark theme
+
+  /// White primary text colour for dark theme
   static const Color darkTextPrimary = Color.fromARGB(255, 255, 255, 255);
-  
-  /// Light grey secondary text color for dark theme
+
+  /// Light grey secondary text colour for dark theme
   static const Color darkTextSecondary = Color.fromARGB(255, 255, 255, 255);
-  
-  /// Dark grey divider color for dark theme separators
+
+  /// Dark grey divider colour for dark theme separators
   static const Color darkDivider = Color(0xFF424242);
 
   // ========== HELPER METHODS ==========
-  /// Adjusts color opacity to create transparent or semi-transparent versions
+  /// Adjusts colour opacity to create transparent or semi-transparent versions
   ///
-  /// This helper applies a specified level of transparency to a color, making
+  /// This helper applies a specified level of transparency to a colour, making
   /// it useful for creating overlays, shadows, or muted background variations.
   ///
   /// Parameters:
-  ///   color - The base color to adjust
+  ///   color - The base colour to adjust
   ///   opacity - Target opacity value between 0.0 (transparent) and 1.0 (opaque)
   ///
   /// Returns:
@@ -93,7 +98,7 @@ class AppTheme {
   /// Light theme configuration for the app
   ///
   /// Provides a complete ThemeData object configured for light mode,
-  /// including color scheme, text styles, and component themes.
+  /// including colour scheme, text styles, and component themes.
   ///
   /// Returns:
   ///   ThemeData object ready for use in MaterialApp theme property
@@ -112,7 +117,7 @@ class AppTheme {
   /// Dark theme configuration for the app
   ///
   /// Provides a complete ThemeData object configured for dark mode,
-  /// including color scheme, text styles, and component themes.
+  /// including colour scheme, text styles, and component themes.
   ///
   /// Returns:
   ///   ThemeData object ready for use in MaterialApp darkTheme property
@@ -130,17 +135,17 @@ class AppTheme {
 
   /// Core theme builder that handles both light and dark theme configuration
   ///
-  /// This private method centralizes theme creation logic, ensuring consistency
+  /// This private method centralises theme creation logic, ensuring consistency
   /// between light and dark themes while allowing for mode-specific adjustments.
   ///
   /// Parameters:
   ///   brightness - Brightness.light or Brightness.dark to set the base mode
-  ///   backgroundColor - Main screen background color
-  ///   surfaceColor - Color for surfaces like input fields and dialogs
-  ///   cardColor - Color for elevated card components
-  ///   textPrimaryColor - Color for primary text content
-  ///   textSecondaryColor - Color for secondary/supporting text
-  ///   dividerColor - Color for dividers and separators
+  ///   backgroundColor - Main screen background colour
+  ///   surfaceColor - Colour for surfaces like input fields and dialogues
+  ///   cardColor - Colour for elevated card components
+  ///   textPrimaryColor - Colour for primary text content
+  ///   textSecondaryColor - Colour for secondary/supporting text
+  ///   dividerColor - Colour for dividers and separators
   ///
   /// Returns:
   ///   Configured ThemeData object with all component themes set
@@ -153,29 +158,48 @@ class AppTheme {
     required Color textSecondaryColor,
     required Color dividerColor,
   }) {
-    // Build consistent color scheme based on the brightness mode
+    // Build consistent colour scheme based on the brightness mode
     final colorScheme = ColorScheme(
       brightness: brightness,
       primary: primaryColor,
       onPrimary: Colors.white,
       secondary: secondaryColor,
       onSecondary: Colors.white,
-      error: brightness == Brightness.light ? Colors.red.shade700 : Colors.red.shade300,
+      error:
+          brightness == Brightness.light
+              ? Colors.red.shade700
+              : Colors.red.shade300,
       onError: Colors.white,
       surface: surfaceColor,
       onSurface: textPrimaryColor,
-      outline: brightness == Brightness.light 
-          ? withAlpha(Colors.black, 0.12) 
-          : withAlpha(Colors.white, 0.12),
+      outline:
+          brightness == Brightness.light
+              ? withAlpha(Colors.black, 0.12)
+              : withAlpha(Colors.white, 0.12),
     );
 
     // Configure text theme with consistent styling across the app
     final textTheme = TextTheme(
-      displayLarge: TextStyle(color: textPrimaryColor, fontWeight: FontWeight.bold),
-      displayMedium: TextStyle(color: textPrimaryColor, fontWeight: FontWeight.bold),
-      displaySmall: TextStyle(color: textPrimaryColor, fontWeight: FontWeight.bold),
-      headlineMedium: TextStyle(color: textPrimaryColor, fontWeight: FontWeight.bold),
-      titleLarge: TextStyle(color: textPrimaryColor, fontWeight: FontWeight.bold),
+      displayLarge: TextStyle(
+        color: textPrimaryColor,
+        fontWeight: FontWeight.bold,
+      ),
+      displayMedium: TextStyle(
+        color: textPrimaryColor,
+        fontWeight: FontWeight.bold,
+      ),
+      displaySmall: TextStyle(
+        color: textPrimaryColor,
+        fontWeight: FontWeight.bold,
+      ),
+      headlineMedium: TextStyle(
+        color: textPrimaryColor,
+        fontWeight: FontWeight.bold,
+      ),
+      titleLarge: TextStyle(
+        color: textPrimaryColor,
+        fontWeight: FontWeight.bold,
+      ),
       titleMedium: TextStyle(color: textPrimaryColor),
       bodyLarge: TextStyle(color: textPrimaryColor),
       bodyMedium: TextStyle(color: textSecondaryColor),
@@ -191,7 +215,7 @@ class AppTheme {
       cardColor: cardColor,
       dividerColor: dividerColor,
       textTheme: textTheme,
-      
+
       // AppBar theme - consistent styling for all app bars
       appBarTheme: AppBarTheme(
         backgroundColor: primaryColor,
@@ -204,7 +228,7 @@ class AppTheme {
           color: Colors.white,
         ),
       ),
-      
+
       // Button themes - consistent styling for elevated buttons
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
@@ -215,13 +239,10 @@ class AppTheme {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
-          textStyle: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 16,
-          ),
+          textStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
         ),
       ),
-      
+
       // Input field styling for text inputs and form fields
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
@@ -230,44 +251,37 @@ class AppTheme {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(
-            color: brightness == Brightness.light 
-                ? withAlpha(Colors.black, 0.12) 
-                : withAlpha(Colors.white, 0.12),
+            color:
+                brightness == Brightness.light
+                    ? withAlpha(Colors.black, 0.12)
+                    : withAlpha(Colors.white, 0.12),
           ),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: BorderSide(
-            color: brightness == Brightness.light 
-                ? withAlpha(Colors.black, 0.12) 
-                : withAlpha(Colors.white, 0.12),
+            color:
+                brightness == Brightness.light
+                    ? withAlpha(Colors.black, 0.12)
+                    : withAlpha(Colors.white, 0.12),
           ),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(
-            color: primaryColor,
-            width: 2.0,
-          ),
+          borderSide: BorderSide(color: primaryColor, width: 2.0),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(
-            color: colorScheme.error,
-          ),
+          borderSide: BorderSide(color: colorScheme.error),
         ),
-        hintStyle: TextStyle(
-          color: withAlpha(textPrimaryColor, 0.5),
-        ),
+        hintStyle: TextStyle(color: withAlpha(textPrimaryColor, 0.5)),
       ),
-      
+
       // Card styling for consistent card appearance
       cardTheme: CardTheme(
         color: cardColor,
         elevation: 3,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         margin: EdgeInsets.only(bottom: 16),
       ),
     );
@@ -286,7 +300,7 @@ class AppTheme {
   static TextStyle pageTitleStyle(BuildContext context) {
     return Theme.of(context).textTheme.headlineMedium!;
   }
-  
+
   /// Style for section headings (medium, bold subheading)
   ///
   /// Returns a consistent text style for section headings within pages.
@@ -299,7 +313,7 @@ class AppTheme {
   static TextStyle sectionHeadingStyle(BuildContext context) {
     return Theme.of(context).textTheme.titleLarge!;
   }
-  
+
   /// Style for main body text (regular paragraph text)
   ///
   /// Returns a consistent text style for primary content text.
@@ -325,12 +339,12 @@ class AppTheme {
   static TextStyle infoTextStyle(BuildContext context) {
     return Theme.of(context).textTheme.bodyMedium!;
   }
-  
-  // ========== COLOR ACCESSORS ==========
-  /// Get category card color by name for consistent color usage
+
+  // ========== COLOUR ACCESSORS ==========
+  /// Get category card colour by name for consistent colour usage
   ///
-  /// Allows retrieving the appropriate color for a section by its name,
-  /// ensuring consistent color mapping throughout the app.
+  /// Allows retrieving the appropriate colour for a section by its name,
+  /// ensuring consistent colour mapping throughout the app.
   ///
   /// Parameters:
   ///   category - String name of the app section/category

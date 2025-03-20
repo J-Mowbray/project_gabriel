@@ -39,18 +39,12 @@ class BasePageLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       // App bar with styling from the global theme configuration
-      appBar: AppBar(
-        title: Text(title),
-        bottom: bottomAppBar,
-      ),
-      // Page body with consistent background color and padding
+      appBar: AppBar(title: Text(title), bottom: bottomAppBar),
+      // Page body with consistent background colour and padding
       body: Container(
         color: Theme.of(context).scaffoldBackgroundColor,
         child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: child,
-          ),
+          child: Padding(padding: const EdgeInsets.all(16.0), child: child),
         ),
       ),
       // Optional floating action button if provided

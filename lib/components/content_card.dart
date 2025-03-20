@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:gabrielsstar/theme/theme_config.dart';
 
-/// ContentCard provides a standardized card layout for displaying information.
+/// ContentCard provides a standardised card layout for displaying information.
 ///
 /// This reusable component displays titled content blocks with optional icons
 /// and tap functionality. It's used throughout the app to present information
@@ -23,7 +23,7 @@ class ContentCard extends StatelessWidget {
   /// Optional callback function when the card is tapped
   final VoidCallback? onTap;
 
-  /// Creates a standardized content card with consistent styling.
+  /// Creates a standardised content card with consistent styling.
   ///
   /// Parameters:
   ///   title - Heading text displayed at the top of the card
@@ -42,17 +42,17 @@ class ContentCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Access current theme and determine icon colors
+    // Access current theme and determine icon colours
     final theme = Theme.of(context);
     final color = iconColor ?? theme.primaryColor;
-    
-    // Create a semi-transparent background color for the icon
+
+    // Create a semi-transparent background colour for the icon
     // with appropriate opacity based on light/dark mode
     final iconBgColor = AppTheme.withAlpha(
-      color, 
-      theme.brightness == Brightness.dark ? 0.3 : 0.1
+      color,
+      theme.brightness == Brightness.dark ? 0.3 : 0.1,
     );
-    
+
     return Card(
       // Card styling applied from global card theme
       child: InkWell(
@@ -75,35 +75,29 @@ class ContentCard extends StatelessWidget {
                         color: iconBgColor,
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child: Icon(
-                        icon,
-                        color: color,
-                      ),
+                      child: Icon(icon, color: color),
                     ),
                     const SizedBox(width: 8),
                   ],
                   // Title text that expands to fill available space
                   Expanded(
-                    child: Text(
-                      title,
-                      style: theme.textTheme.titleLarge,
-                    ),
+                    child: Text(title, style: theme.textTheme.titleLarge),
                   ),
                   // Only show navigation chevron if card is tappable
                   if (onTap != null)
                     Icon(
-                      Icons.arrow_forward_ios, 
-                      size: 16, 
-                      color: AppTheme.withAlpha(theme.colorScheme.onSurface, 0.6),
+                      Icons.arrow_forward_ios,
+                      size: 16,
+                      color: AppTheme.withAlpha(
+                        theme.colorScheme.onSurface,
+                        0.6,
+                      ),
                     ),
                 ],
               ),
               const SizedBox(height: 8),
               // Main content text
-              Text(
-                content,
-                style: theme.textTheme.bodyLarge,
-              ),
+              Text(content, style: theme.textTheme.bodyLarge),
             ],
           ),
         ),

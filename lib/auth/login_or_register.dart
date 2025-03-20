@@ -16,11 +16,10 @@ class LoginOrRegister extends StatefulWidget {
 }
 
 class _LoginOrRegisterState extends State<LoginOrRegister> {
-  
   /// Determines which authentication screen to display.
   ///
   /// When true, the login page is shown; when false, the registration page
-  /// is shown. Initialized to true to show the login page first.
+  /// is shown. Initialised to true to show the login page first.
   bool showLoginPage = true;
 
   /// Toggles between the login and registration screens.

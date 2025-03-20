@@ -77,9 +77,9 @@ class _RegisterPageState extends State<RegisterPage> {
     }
   }
 
-  /// Shows the privacy policy consent dialog.
+  /// Shows the privacy policy consent dialogue.
   ///
-  /// Displays a dialog explaining how user data is handled and requires
+  /// Displays a dialogue explaining how user data is handled and requires
   /// explicit consent before proceeding with registration.
   void _showPrivacyConsentDialog() {
     final theme = Theme.of(context);
@@ -102,7 +102,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   const SizedBox(height: 16),
                   TextButton(
                     onPressed: () {
-                      // Navigate to privacy policy page while keeping dialog open
+                      // Navigate to privacy policy page while keeping dialogue open
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -147,9 +147,9 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 
-  /// Shows a dialog that allows the user to request a password reset.
+  /// Shows a dialogue that allows the user to request a password reset.
   ///
-  /// Displays a dialog with an email input field and sends a password
+  /// Displays a dialogue with an email input field and sends a password
   /// reset email when the user submits their email address.
   void _showForgotPasswordDialog() {
     final resetEmailController = TextEditingController();

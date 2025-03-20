@@ -24,7 +24,7 @@ class PersonalStoriesPage extends StatelessWidget {
           Text('Sharing Our Stories', style: theme.textTheme.headlineMedium),
           const SizedBox(height: 16),
           Text(
-            'Sharing stories can help us feel less alone in our grief. Here, we honor our babies by telling their stories and keeping their memory alive.',
+            'Sharing stories can help us feel less alone in our grief. Here, we honour our babies by telling their stories and keeping their memory alive.',
             style: theme.textTheme.bodyLarge,
           ),
           const SizedBox(height: 24),
@@ -56,7 +56,7 @@ class PersonalStoriesPage extends StatelessWidget {
             context,
             title: "Gabriel's Story",
             author: "Jamie Mowbray",
-            date: 'September 19, 2024',
+            date: 'December 5, 2024',
             previewContent:
                 'On the 19th of September 2024, at 1:44 in the afternoon, my baby son, Gabriel, was born too soon at 17 weeks and 6 days gestation...',
             fullContent: _gabrielsStory,
@@ -256,7 +256,7 @@ class PersonalStoriesPage extends StatelessWidget {
   ///
   /// This narrative shares the experience of losing Gabriel at 17 weeks and 6 days
   /// gestation, and describes the family's journey through grief, the support they
-  /// received, and how the app was created as a memorial to honor Gabriel's memory.
+  /// received, and how the app was created as a memorial to honuor Gabriel's memory.
   static const String _gabrielsStory = '''
 On the 19th of September 2024, at 1:44 in the afternoon, my baby son, Gabriel, was born too soon at 17 weeks and 6 days gestation. This is his story.
 
@@ -266,11 +266,11 @@ At our 12-week scan, we saw Gabriel moving and kicking. His heartbeat was strong
 
 But at 17 weeks, Kay noticed some concerning symptoms. We went to the hospital, worried but still hopeful that everything would be okay. The medical staff were incredible from the moment we arrived. They were kind, compassionate, and did everything they could to determine what was happening.
 
-An ultrasound confirmed our worst fears. Gabriel's heartbeat had stopped. We were devastated beyond words. The next hours and days are somewhat of a blur, but the care we received from the hospital staff stands out in my memory.
+An inspection of Kay’s cervix had confirmed our worst fears. Kay’s waters had broken, she had gone into premature labour. We were devastated beyond words. The next hours and days are somewhat of a blur, but the care we received from the hospital staff stands out in my memory.
 
 Our bereavement midwife, Laura, and bereavement officer, Liz, guided us through the most difficult days of our lives. They explained what would happen next, helped us understand our options, and most importantly, treated Gabriel with dignity and respect. They acknowledged him as our son and validated our grief.
 
-When Gabriel was born, the staff helped us create precious memories in the limited time we had with him. They took photos, made hand and footprints, and provided a special memory box. They helped us bathe and dress him, and gave us private time to say goodbye.
+When Gabriel was born, the staff helped us create precious memories in the limited time we had with him. They took photos, made hand and footprints, and provided a special memory box. They gave us lots of helpful resources, provided a chaplain to bless him and gave us private time to say goodbye.
 
 In the days that followed, we had to face the painful reality of planning a funeral for our baby. Again, the hospital staff provided invaluable guidance, connecting us with funeral directors who specialised in baby funerals and explaining the options available to us.
 

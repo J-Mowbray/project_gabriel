@@ -5,7 +5,7 @@ import 'package:gabrielsstar/theme/theme_config.dart';
 
 /// ResourcesPage provides helpful information for families experiencing pregnancy and infant loss.
 ///
-/// This page organizes essential resources into themed sections, covering topics like
+/// This page organises essential resources into themed sections, covering topics like
 /// what to expect after loss, family support, memory making, and practical matters.
 /// Each resource is presented as a card that can be tapped to view detailed content
 /// in a modal bottom sheet.
@@ -482,7 +482,7 @@ Challenges couples may face:
 • Misinterpreting a partner's coping mechanism as lack of caring
 • Changes in physical intimacy and sexual relationships
 • Differences in readiness to try for another pregnancy
-• Disagreements about how to memorialize or talk about the baby
+• Disagreements about how to memorialise or talk about the baby
 
 When to seek help:
 • If you're struggling to communicate
@@ -513,13 +513,13 @@ Involving family in memory-making:
 • Create family rituals for remembering your baby on significant dates
 
 Dealing with unhelpful responses:
-• Some people may avoid the topic or try to minimize your loss
+• Some people may avoid the topic or try to minimise your loss
 • Others might make insensitive comments despite good intentions
 • Remember that these reactions often stem from discomfort with grief or not knowing what to say
 • Prepare simple responses for difficult situations
 
 Supporting grandparents and others:
-• Recognize that they are experiencing their own grief
+• Recognise that they are experiencing their own grief
 • Direct them to resources specifically for grandparents after pregnancy loss
 • Understand that previous generations may have been taught to "move on" from pregnancy loss
 
@@ -545,17 +545,17 @@ Memory boxes:
 • Can include ultrasound images, pregnancy test, hospital wristbands, sympathy cards
 
 Artwork and photography:
-• Professional remembrance photography (organizations like Remember My Baby offer free services)
+• Professional remembrance photography (organisations like Remember My Baby offer free services)
 • Commissioned artwork based on photos or ultrasound images
 • Painting with ashes incorporated (for babies who were cremated)
 
-Jewelry:
+Jewellery:
 • Necklaces or bracelets with your baby's name
 • Pieces that include birthstone or expected due date stone
-• Fingerprint or footprint jewelry
-• Jewelry that holds a small amount of ashes
+• Fingerprint or footprint jewellery
+• Jewellery that holds a small amount of ashes
 
-Personalized items:
+Personalised items:
 • Teddy bears or stuffed animals made from baby clothes
 • Quilts made from baby clothes or blankets
 • Custom ornaments for holidays
@@ -566,15 +566,15 @@ Digital memorials:
 • Social media remembrance pages
 • Digital scrapbooks
 
-The hospital bereavement team may provide some of these items or direct you to organizations that offer them. Many parents find that creating and displaying these mementos helps acknowledge their baby's existence and importance in the family.
+The hospital bereavement team may provide some of these items or direct you to organisations that offer them. Many parents find that creating and displaying these mementos helps acknowledge their baby's existence and importance in the family.
 ''';
 
   /// Resource content about creating memorials and tributes.
   ///
-  /// Provides ideas for formal and informal ways to memorialize and
+  /// Provides ideas for formal and informal ways to memorialise and
   /// honor babies who have died through pregnancy or infant loss.
   static const String _memorialIdeasContent = '''
-Creating a memorial for your baby can provide a meaningful way to honor their memory and give you a space for reflection and remembrance. Here are some memorial ideas:
+Creating a memorial for your baby can provide a meaningful way to honour their memory and give you a space for reflection and remembrance. Here are some memorial ideas:
 
 Formal memorials:
 • Memorial service or funeral
@@ -674,14 +674,14 @@ Benefits and financial support:
 • Check if you're eligible for benefits like Universal Credit or Housing Benefit if your financial situation has changed
 
 Charitable support:
-• Some baby loss charities offer small grants for memorial items or counseling
-• Organizations like Turn2Us can help you identify benefits you may be entitled to
+• Some baby loss charities offer small grants for memorial items or counselling
+• Organisations like Turn2Us can help you identify benefits you may be entitled to
 
 Workplace considerations:
 • Check your employment contract for compassionate leave provisions
 • Discuss flexible return to work options with your employer
 • Consider a phased return if full-time work feels overwhelming
-• Some workplaces offer employee assistance programs with financial counseling
+• Some workplaces offer employee assistance programs with financial counselling
 
 Planning ahead:
 • Give yourself time before making major financial decisions
@@ -780,6 +780,6 @@ Additional considerations:
 • If you believe your care was inadequate, you have the right to make a complaint
 • Some losses may qualify for special circumstances in future pregnancies
 
-Remember that laws and entitlements may change, and some employers offer more generous provisions than the legal minimum. Seek current advice from citizens advice, ACAS, or specialist organizations like Sands if you have specific questions about your rights.
+Remember that laws and entitlements may change, and some employers offer more generous provisions than the legal minimum. Seek current advice from citizens advice, ACAS, or specialist organisations like Sands if you have specific questions about your rights.
 ''';
 }

@@ -3,11 +3,11 @@ import 'package:gabrielsstar/components/base_page_layout.dart';
 import 'package:gabrielsstar/components/content_card.dart';
 import 'package:gabrielsstar/theme/theme_config.dart';
 
-/// TypesOfLossPage provides educational information about different forms of 
+/// TypesOfLossPage provides educational information about different forms of
 /// pregnancy and infant loss.
 ///
 /// This page presents various types of loss with brief descriptions in cards that
-/// expand to provide more detailed medical information when tapped. The content 
+/// expand to provide more detailed medical information when tapped. The content
 /// aims to help users understand the medical aspects of their loss experience.
 class TypesOfLossPage extends StatelessWidget {
   const TypesOfLossPage({super.key});
@@ -15,7 +15,7 @@ class TypesOfLossPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    
+
     return BasePageLayout(
       title: 'Types of Loss',
       child: ListView(
@@ -38,131 +38,148 @@ class TypesOfLossPage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 24),
-          
+
           // Information about miscarriage - loss before 24 weeks gestation
           ContentCard(
             title: 'Miscarriage',
             content: 'The loss of a pregnancy before 24 weeks of gestation.',
             icon: Icons.info_outline,
             iconColor: AppTheme.typesOfLossCardColor,
-            onTap: () => _showLossDetail(
-              context, 
-              'Miscarriage',
-              _miscarriageContent,
-              AppTheme.typesOfLossCardColor,
-            ),
+            onTap:
+                () => _showLossDetail(
+                  context,
+                  'Miscarriage',
+                  _miscarriageContent,
+                  AppTheme.typesOfLossCardColor,
+                ),
           ),
-          
+
           // Information about stillbirth - loss after 24 weeks gestation
           ContentCard(
             title: 'Stillbirth',
-            content: 'When a baby is born deceased after 24 weeks of pregnancy.',
+            content:
+                'When a baby is born deceased after 24 weeks of pregnancy.',
             icon: Icons.info_outline,
             iconColor: AppTheme.resourcesCardColor,
-            onTap: () => _showLossDetail(
-              context, 
-              'Stillbirth',
-              _stillbirthContent,
-              AppTheme.resourcesCardColor,
-            ),
+            onTap:
+                () => _showLossDetail(
+                  context,
+                  'Stillbirth',
+                  _stillbirthContent,
+                  AppTheme.resourcesCardColor,
+                ),
           ),
-          
+
           // Information about ectopic pregnancy - implantation outside uterus
           ContentCard(
             title: 'Ectopic Pregnancy',
-            content: 'When a fertilized egg implants outside the uterus, most commonly in a fallopian tube.',
+            content:
+                'When a fertilised egg implants outside the uterus, most commonly in a fallopian tube.',
             icon: Icons.info_outline,
             iconColor: AppTheme.personalStoriesCardColor,
-            onTap: () => _showLossDetail(
-              context, 
-              'Ectopic Pregnancy',
-              _ectopicContent,
-              AppTheme.personalStoriesCardColor,
-            ),
+            onTap:
+                () => _showLossDetail(
+                  context,
+                  'Ectopic Pregnancy',
+                  _ectopicContent,
+                  AppTheme.personalStoriesCardColor,
+                ),
           ),
-          
+
           // Information about molar pregnancy - abnormal growth instead of embryo
           ContentCard(
             title: 'Molar Pregnancy',
-            content: 'A rare complication where tissue that normally becomes a fetus instead becomes an abnormal growth in the uterus.',
+            content:
+                'A rare complication where tissue that normally becomes a foetus instead becomes an abnormal growth in the uterus.',
             icon: Icons.info_outline,
             iconColor: AppTheme.awarenessCardColor,
-            onTap: () => _showLossDetail(
-              context, 
-              'Molar Pregnancy',
-              _molarContent,
-              AppTheme.awarenessCardColor,
-            ),
+            onTap:
+                () => _showLossDetail(
+                  context,
+                  'Molar Pregnancy',
+                  _molarContent,
+                  AppTheme.awarenessCardColor,
+                ),
           ),
-          
+
           // Information about TFMR - ending pregnancy for medical reasons
           ContentCard(
             title: 'Termination for Medical Reasons (TFMR)',
-            content: 'The difficult decision to end a wanted pregnancy due to severe fetal abnormalities or risks to maternal health.',
+            content:
+                'The difficult decision to end a wanted pregnancy due to severe foetal abnormalities or risks to maternal health.',
             icon: Icons.info_outline,
             iconColor: AppTheme.supportTipsCardColor,
-            onTap: () => _showLossDetail(
-              context, 
-              'Termination for Medical Reasons (TFMR)',
-              _tfmrContent,
-              AppTheme.supportTipsCardColor,
-            ),
+            onTap:
+                () => _showLossDetail(
+                  context,
+                  'Termination for Medical Reasons (TFMR)',
+                  _tfmrContent,
+                  AppTheme.supportTipsCardColor,
+                ),
           ),
-          
+
           // Information about neonatal death - loss within first 28 days of life
           ContentCard(
             title: 'Neonatal Death',
-            content: 'The death of a newborn baby within the first 28 days of life.',
+            content:
+                'The death of a newborn baby within the first 28 days of life.',
             icon: Icons.info_outline,
             iconColor: AppTheme.supportNetworksCardColor,
-            onTap: () => _showLossDetail(
-              context, 
-              'Neonatal Death',
-              _neonatalContent,
-              AppTheme.supportNetworksCardColor,
-            ),
+            onTap:
+                () => _showLossDetail(
+                  context,
+                  'Neonatal Death',
+                  _neonatalContent,
+                  AppTheme.supportNetworksCardColor,
+                ),
           ),
-          
+
           // Information about SIDS - unexpected infant death during sleep
           ContentCard(
             title: 'Sudden Infant Death Syndrome (SIDS)',
-            content: 'The unexplained death of a seemingly healthy baby, usually during sleep.',
+            content:
+                'The unexplained death of a seemingly healthy baby, usually during sleep.',
             icon: Icons.info_outline,
             iconColor: AppTheme.typesOfLossCardColor,
-            onTap: () => _showLossDetail(
-              context, 
-              'Sudden Infant Death Syndrome (SIDS)',
-              _sidsContent,
-              AppTheme.typesOfLossCardColor,
-            ),
+            onTap:
+                () => _showLossDetail(
+                  context,
+                  'Sudden Infant Death Syndrome (SIDS)',
+                  _sidsContent,
+                  AppTheme.typesOfLossCardColor,
+                ),
           ),
-          
+
           // Information about early pregnancy loss - first trimester losses
           ContentCard(
             title: 'Early Pregnancy Loss',
-            content: 'Loss that occurs in the first trimester (first 12 weeks) of pregnancy.',
+            content:
+                'Loss that occurs in the first trimester (first 12 weeks) of pregnancy.',
             icon: Icons.info_outline,
             iconColor: AppTheme.resourcesCardColor,
-            onTap: () => _showLossDetail(
-              context, 
-              'Early Pregnancy Loss',
-              _earlyLossContent,
-              AppTheme.resourcesCardColor,
-            ),
+            onTap:
+                () => _showLossDetail(
+                  context,
+                  'Early Pregnancy Loss',
+                  _earlyLossContent,
+                  AppTheme.resourcesCardColor,
+                ),
           ),
-          
+
           // Information about recurrent pregnancy loss - multiple consecutive losses
           ContentCard(
             title: 'Recurrent Pregnancy Loss',
-            content: 'The experience of three or more consecutive pregnancy losses.',
+            content:
+                'The experience of three or more consecutive pregnancy losses.',
             icon: Icons.info_outline,
             iconColor: AppTheme.personalStoriesCardColor,
-            onTap: () => _showLossDetail(
-              context, 
-              'Recurrent Pregnancy Loss',
-              _recurrentLossContent,
-              AppTheme.personalStoriesCardColor,
-            ),
+            onTap:
+                () => _showLossDetail(
+                  context,
+                  'Recurrent Pregnancy Loss',
+                  _recurrentLossContent,
+                  AppTheme.personalStoriesCardColor,
+                ),
           ),
         ],
       ),
@@ -179,10 +196,15 @@ class TypesOfLossPage extends StatelessWidget {
   ///   context - The build context
   ///   title - The name of the loss type
   ///   content - The detailed medical information text to display
-  ///   iconColor - The color to apply to the header (visual category indicator)
-  void _showLossDetail(BuildContext context, String title, String content, Color iconColor) {
+  ///   iconColor - The colour to apply to the header (visual category indicator)
+  void _showLossDetail(
+    BuildContext context,
+    String title,
+    String content,
+    Color iconColor,
+  ) {
     final theme = Theme.of(context);
-    
+
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
@@ -203,7 +225,9 @@ class TypesOfLossPage extends StatelessWidget {
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(
                     color: theme.primaryColor,
-                    borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+                    borderRadius: const BorderRadius.vertical(
+                      top: Radius.circular(20),
+                    ),
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -246,12 +270,7 @@ class TypesOfLossPage extends StatelessWidget {
                   child: ListView(
                     controller: controller,
                     padding: const EdgeInsets.all(16),
-                    children: [
-                      Text(
-                        content,
-                        style: theme.textTheme.bodyLarge,
-                      ),
-                    ],
+                    children: [Text(content, style: theme.textTheme.bodyLarge)],
                   ),
                 ),
               ],
@@ -264,17 +283,17 @@ class TypesOfLossPage extends StatelessWidget {
 
   /// Medical information about miscarriage.
   ///
-  /// Provides details about the definition, types, symptoms, causes, and 
+  /// Provides details about the definition, types, symptoms, causes, and
   /// management of miscarriage, which is pregnancy loss before 24 weeks gestation.
   static const String _miscarriageContent = '''
-Miscarriage is the most common type of pregnancy loss, affecting approximately 1 in 4 pregnancies. While it's often defined medically as loss before 24 weeks, many healthcare providers further categorize miscarriages:
+Miscarriage is the most common type of pregnancy loss, affecting approximately 1 in 4 pregnancies. While it's often defined medically as loss before 24 weeks, many healthcare providers further categorise miscarriages:
 
 Types of miscarriage:
 • Complete miscarriage: All pregnancy tissue has been passed
 • Incomplete miscarriage: Some pregnancy tissue remains in the uterus
 • Missed miscarriage: The pregnancy has stopped developing but hasn't been physically passed
 • Threatened miscarriage: Bleeding suggests possible miscarriage, but the pregnancy continues
-• Blighted ovum (anembryonic pregnancy): A fertilized egg implants but doesn't develop into an embryo
+• Blighted ovum (anembryonic pregnancy): A fertilised egg implants but doesn't develop into an embryo
 
 Common symptoms include:
 • Vaginal bleeding or spotting
@@ -282,7 +301,7 @@ Common symptoms include:
 • Passing tissue or clots
 • Decrease in pregnancy symptoms
 
-Most miscarriages occur in the first trimester and are due to chromosomal abnormalities that happen by chance during fertilization or early cell division. Other causes may include:
+Most miscarriages occur in the first trimester and are due to chromosomal abnormalities that happen by chance during fertilisation or early cell division. Other causes may include:
 • Structural issues with the uterus or cervix
 • Certain medical conditions like uncontrolled diabetes or thyroid disease
 • Advanced maternal age
@@ -311,7 +330,7 @@ Facts to remember:
   static const String _stillbirthContent = '''
 Stillbirth is defined as the birth of a baby who has died before or during delivery after 24 weeks of pregnancy. In the UK, approximately 1 in every 250 pregnancies ends in stillbirth.
 
-When stillbirth occurs, you will go through labor and delivery. The hospital staff will provide options for spending time with your baby, creating memories, and arranging funeral services.
+When stillbirth occurs, you will go through labour and delivery. The hospital staff will provide options for spending time with your baby, creating memories, and arranging funeral services.
 
 Possible causes include:
 • Placental complications
@@ -338,14 +357,14 @@ The physical recovery process is similar to recovery after live birth. You may e
 • Physical discomfort from delivery
 • Hormonal changes affecting mood and emotions
 
-Hospitals usually offer follow-up appointments to discuss test results and provide support. Many hospitals have specialized bereavement services for families experiencing stillbirth.
+Hospitals usually offer follow-up appointments to discuss test results and provide support. Many hospitals have specialised bereavement services for families experiencing stillbirth.
 
 Support after stillbirth:
-• Specialized bereavement midwives or nurses
+• Specialised bereavement midwives or nurses
 • Hospital chaplains or spiritual care
 • Memory-making opportunities (photographs, handprints, locks of hair)
 • Support groups specifically for stillbirth
-• Counseling services
+• Counselling services
 
 It's important to know that many people who experience stillbirth do go on to have subsequent healthy pregnancies, often with additional monitoring and support.
 ''';
@@ -355,7 +374,7 @@ It's important to know that many people who experience stillbirth do go on to ha
   /// Provides details about the definition, symptoms, risk factors, treatment
   /// options, and recovery for ectopic pregnancy, when implantation occurs outside the uterus.
   static const String _ectopicContent = '''
-An ectopic pregnancy occurs when a fertilized egg implants and grows outside the main cavity of the uterus, most commonly in a fallopian tube. This type of pregnancy cannot proceed normally and requires medical intervention.
+An ectopic pregnancy occurs when a fertilised egg implants and grows outside the main cavity of the uterus, most commonly in a fallopian tube. This type of pregnancy cannot proceed normally and requires medical intervention.
 
 In the UK, around 1 in 90 pregnancies is ectopic.
 
@@ -399,11 +418,11 @@ Most women who have had an ectopic pregnancy can go on to have a normal pregnanc
   /// Provides details about the definition, types, symptoms, diagnosis, treatment,
   /// and follow-up care for molar pregnancy, an abnormal growth instead of normal embryo development.
   static const String _molarContent = '''
-A molar pregnancy (also called hydatidiform mole) is a rare complication where tissue that normally becomes a fetus instead develops into an abnormal growth in the uterus. It's a type of gestational trophoblastic disease (GTD).
+A molar pregnancy (also called hydatidiform mole) is a rare complication where tissue that normally becomes a foetus instead develops into an abnormal growth in the uterus. It's a type of gestational trophoblastic disease (GTD).
 
 There are two types:
-• Complete molar pregnancy: No fetal tissue develops, and all the placental tissue is abnormal
-• Partial molar pregnancy: Some normal placental tissue develops alongside the abnormal tissue, and there may be some fetal development, though not viable
+• Complete molar pregnancy: No foetal tissue develops, and all the placental tissue is abnormal
+• Partial molar pregnancy: Some normal placental tissue develops alongside the abnormal tissue, and there may be some foetal development, though not viable
 
 Symptoms may include:
 • Vaginal bleeding in early pregnancy
@@ -436,7 +455,7 @@ After one molar pregnancy:
 • Most women go on to have normal pregnancies afterward
 • Early ultrasound is recommended in subsequent pregnancies
 
-Support is available through specialized follow-up clinics and organizations focused on this rare condition.
+Support is available through specialised follow-up clinics and organisations focused on this rare condition.
 ''';
 
   /// Medical information about termination for medical reasons.
@@ -444,21 +463,21 @@ Support is available through specialized follow-up clinics and organizations foc
   /// Provides details about the definition, reasons, decision process, procedures,
   /// and support options for termination of pregnancy due to medical indications.
   static const String _tfmrContent = '''
-Termination for Medical Reasons (TFMR) refers to ending a wanted pregnancy due to severe fetal abnormalities or to protect the mother's health. This is one of the most difficult decisions parents may face.
+Termination for Medical Reasons (TFMR) refers to ending a wanted pregnancy due to severe foetal abnormalities or to protect the mother's health. This is one of the most difficult decisions parents may face.
 
 Reasons for TFMR may include:
-• Severe or fatal fetal anomalies discovered during screening or diagnostic tests
+• Severe or fatal foetal anomalies discovered during screening or diagnostic tests
 • Conditions incompatible with life or that would lead to significant suffering
 • Maternal health conditions where continuing the pregnancy poses serious risks
 
 The decision process typically involves:
 • Extensive testing to confirm diagnosis (ultrasounds, amniocentesis, CVS, genetic testing)
-• Consultations with specialists (maternal-fetal medicine, genetics, pediatric specialists)
+• Consultations with specialists (maternal-foetal medicine, genetics, paediatric specialists)
 • Discussions about prognosis and quality of life
 • Consideration of personal, family, ethical, and sometimes religious factors
 
 Procedures may include:
-• Medical termination (using medications to induce labor)
+• Medical termination (using medications to induce labour)
 • Surgical procedures (D&E - dilation and evacuation)
 
 The method used often depends on the gestational age and other medical factors.
@@ -477,9 +496,9 @@ The grief following TFMR can be complicated by:
 • Limited support resources specific to this type of loss
 
 Support resources include:
-• Specialized support groups for families who have experienced TFMR
-• Genetic counseling for future pregnancy planning
-• Bereavement counseling
+• Specialised support groups for families who have experienced TFMR
+• Genetic counselling for future pregnancy planning
+• Bereavement counselling
 
 It's important to know that many families who experience TFMR do go on to have healthy pregnancies in the future, often with additional prenatal testing and monitoring.
 ''';
@@ -509,7 +528,7 @@ When a baby is critically ill after birth:
 Many hospitals provide:
 • Opportunity to hold and spend time with your baby
 • Memory-making activities (photographs, handprints, locks of hair)
-• Support from specialized bereavement staff
+• Support from specialised bereavement staff
 • Private family rooms for saying goodbye
 • Spiritual or religious ceremonies if desired
 • Help with funeral arrangements
@@ -526,9 +545,9 @@ The physical recovery for the mother will be similar to recovery after any birth
 • Healing from delivery
 • Fatigue from grief and physical recovery
 
-Partners and siblings will also need support during this time, and family-centered bereavement care is important.
+Partners and siblings will also need support during this time, and family-centred bereavement care is important.
 
-Organizations like Sands provide specialized support for families experiencing neonatal death.
+Organisations like Sands provide specialised support for families experiencing neonatal death.
 ''';
 
   /// Medical information about Sudden Infant Death Syndrome.
@@ -557,18 +576,18 @@ When SIDS occurs:
 
 After the loss:
 • Parents may experience intense grief complicated by shock and sometimes guilt
-• Support from specialized bereavement services is available
+• Support from specialised bereavement services is available
 • Post-mortem examination may be conducted
 • Coroner's inquest may be held
-• Support organizations specifically for SIDS bereavement exist
+• Support organisations specifically for SIDS bereavement exist
 
 For subsequent children:
 • Parents often experience heightened anxiety
 • Medical monitoring equipment may be offered
-• Counseling and support can help manage anxiety
+• Counselling and support can help manage anxiety
 • Following safe sleep guidelines remains important
 
-While nothing can guarantee prevention of SIDS, the "Safer Sleep" guidelines recommended by organizations like The Lullaby Trust can significantly reduce the risk:
+While nothing can guarantee prevention of SIDS, the "Safer Sleep" guidelines recommended by organisations like The Lullaby Trust can significantly reduce the risk:
 • Always place baby on their back to sleep
 • Keep baby in a smoke-free environment
 • Place baby in their own sleep space with a firm, flat mattress
@@ -614,7 +633,7 @@ Recovery typically involves:
 • Return of normal menstrual cycle within 4-6 weeks
 • Emotional healing, which varies greatly among individuals
 
-Early pregnancy loss often receives less social recognition than later losses, which can leave parents feeling that their grief is minimized or invalidated. However, the emotional impact can be profound regardless of how early the loss occurred.
+Early pregnancy loss often receives less social recognition than later losses, which can leave parents feeling that their grief is minimised or invalidated. However, the emotional impact can be profound regardless of how early the loss occurred.
 
 Support after early loss:
 • Acknowledge the validity of grief regardless of gestation
@@ -623,14 +642,14 @@ Support after early loss:
 • Be gentle with yourself during the physical and emotional recovery
 • Seek professional support if grief becomes overwhelming
 
-Most women who experience early pregnancy loss go on to have successful pregnancies. After one early loss, there is usually no need for specialized testing before trying again.
+Most women who experience early pregnancy loss go on to have successful pregnancies. After one early loss, there is usually no need for specialised testing before trying again.
 ''';
 
   /// Medical information about recurrent pregnancy loss.
   ///
   /// Provides details about the definition, emotional impact, and medical
   /// investigations for those experiencing multiple consecutive pregnancy losses.
-static const String _recurrentLossContent = '''
+  static const String _recurrentLossContent = '''
 Recurrent pregnancy loss (RPL) is typically defined as three or more consecutive pregnancy losses. It affects approximately 1-2% of couples trying to conceive.
 
 When diagnosed with RPL, the emotional impact can be particularly difficult:
@@ -691,12 +710,13 @@ When no cause is found, supportive care with early and frequent monitoring in su
 • Early ultrasounds to confirm viability
 • Hormone level monitoring
 • Regular check-ups with a specialist
-• Emotional support and counseling
+• Emotional support and counselling
 
 Success rates after recurrent losses:
 • Without intervention, 60-75% of women with unexplained RPL will have a successful next pregnancy
 • With appropriate treatment for identified causes, success rates may be higher
 • The chances of success may decrease with maternal age and number of previous losses
 
-Support is crucial when experiencing recurrent pregnancy loss. Organizations like Tommy's, The Miscarriage Association, and specialized recurrent miscarriage clinics offer resources specifically for those dealing with multiple losses.
-''';}
+Support is crucial when experiencing recurrent pregnancy loss. Organisations like Tommy's, The Miscarriage Association, and specialised recurrent miscarriage clinics offer resources specifically for those dealing with multiple losses.
+''';
+}
