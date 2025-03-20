@@ -61,13 +61,13 @@ class AppTheme {
 
   // Dark theme colours for the app's dark mode
   /// Deep dark background colour for dark theme screens
-  static const Color darkBackground = Color(0xFF121212);
+  static const Color darkBackground = Color.fromARGB(255, 26, 35, 64);
 
   /// Slightly lighter surface colour for dark theme containers
-  static const Color darkSurface = Color(0xFF1E1E1E);
+  static const Color darkSurface = Color.fromARGB(255, 26, 35, 64);
 
   /// Dark grey card colour for dark theme cards and elevated surfaces
-  static const Color darkCard = Color(0xFF2C2C2C);
+  static const Color darkCard = Color.fromARGB(255, 56, 65, 94);
 
   /// White primary text colour for dark theme
   static const Color darkTextPrimary = Color.fromARGB(255, 255, 255, 255);
